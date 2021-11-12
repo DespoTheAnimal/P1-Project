@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private int playerMaxHealth = 100;
+    private int playerMinimumHealth = 0;
+    private int playerCurrentHealth;
+    private float swimSpeed;
+    
+
     void Start()
     {
         
