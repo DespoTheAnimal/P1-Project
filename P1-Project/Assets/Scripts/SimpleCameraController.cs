@@ -187,7 +187,7 @@ namespace UnityTemplateProjects
             // Rotation
             if (IsCameraRotationAllowed())
             {
-                var mouseMovement = GetInputLookRotation() * Time.deltaTime * 5;
+                var mouseMovement = GetInputLookRotation() * Time.deltaTime * 25;
                 if (invertY)
                     mouseMovement.y = -mouseMovement.y;
                 
@@ -203,7 +203,7 @@ namespace UnityTemplateProjects
             // Speed up movement when shift key held
             if (IsBoostPressed())
             {
-                translation *= 10.0f;
+                translation *= 5.0f;
             }
             
             // Modify movement by a boost factor (defined in Inspector and modified in play mode through the mouse scroll wheel)
