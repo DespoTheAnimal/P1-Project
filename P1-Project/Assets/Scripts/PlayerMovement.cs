@@ -2,14 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
-    private int playerMaxHealth = 100;
-    private int playerMinimumHealth = 0;
-    private int playerCurrentHealth;
-    private float swimSpeed;
-    
-
+    // Start is called before the first frame update
     void Start()
     {
         
