@@ -37,7 +37,7 @@ public class EnemyMovement : MonoBehaviour
     /// </summary>
     void MoveToPlayer()
     {
-        rb.position = Vector3.MoveTowards(rb.position, rbTarget.transform.position, speed * Time.deltaTime);
+        rb.position = Vector3.MoveTowards(rb.position, rbTarget.position, speed * Time.deltaTime);
     }
 
     /// <summary>
