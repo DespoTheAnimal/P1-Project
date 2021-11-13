@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
 
-    int health;
+    int dmg;
     // Start is called before the first frame update
     void Start()
     {
-        
+        dmg = 2;
     }
 
     // Update is called once per frame
@@ -18,11 +18,9 @@ public class Player : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void Hit(int health)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            Debug.Log("lost health");
-        }
+        health = health - dmg;
     }
+
 }
