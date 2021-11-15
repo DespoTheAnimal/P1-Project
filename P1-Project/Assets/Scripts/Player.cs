@@ -5,12 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    int hp = 10;
-    int minHp;
-    int maxHp;
+    int currentHealth = 10;
+    int minHealth;
+    int maxHealth = 100;
 
     Scene activeScene;
     int sceneNumber;
+
 
     bool isDead;
     // Start is called before the first frame update
@@ -18,6 +19,9 @@ public class Player : MonoBehaviour
     {
         activeScene = SceneManager.GetActiveScene();
         sceneNumber = activeScene.buildIndex;
+
+        currentHealth = maxHealth;
+
     }
 
     // Update is called once per frame
@@ -32,15 +36,16 @@ public class Player : MonoBehaviour
 
     void TakeDamage (int dmg)
     {
-        hp -= dmg;
+        currentHealth -= dmg;
     }
 
     void IsDead()
     {
-        if (hp < minHp)
+        if (currentHealth < minHealth)
         {
             isDead = true;
-        } else isDead = false;
+        }
+        else isDead = false;
 
     }
 
@@ -53,7 +58,7 @@ public class Player : MonoBehaviour
         Debug.Log("Collisiondetected");
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log(hp);
+            Debug.Log(currentHealth);
             int dmg = other.gameObject.GetComponent<Enemy>().dmg;
             TakeDamage(dmg);
 
