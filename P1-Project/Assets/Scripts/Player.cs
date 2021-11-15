@@ -9,8 +9,16 @@ public class Player : MonoBehaviour
     int minHp;
     int maxHp;
 
+    Rigidbody rb;
+
+    float height = 1f;
+
     Scene activeScene;
     int sceneNumber;
+
+
+    int trashPickedUp;
+    RaycastHit Hit;
 
     bool isDead;
     // Start is called before the first frame update
@@ -18,6 +26,8 @@ public class Player : MonoBehaviour
     {
         activeScene = SceneManager.GetActiveScene();
         sceneNumber = activeScene.buildIndex;
+
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -28,6 +38,8 @@ public class Player : MonoBehaviour
         {
             Restartlvl();
         }
+
+        PickUp();
     }
 
     void TakeDamage (int dmg)
@@ -60,6 +72,33 @@ public class Player : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// The player gets more trash and the trash object is destroyed when pickedup
+    /// </summary>
+    void TrashPickUp()
+    {
+        trashPickedUp++;
+        Destroy(Hit.transform.gameObject);
+    }
+
+    /// <summary>
+    /// If the player is close to trash it can pick it up
+    /// </summary>
+    void PickUp()
+    {
+        float DistanceToTrash = 5f;
+        if (Physics.SphereCast(rb.position, height, transform.forward, out Hit, DistanceToTrash))
+        {
+            Debug.Log("Sees object");
+            if (Hit.transform.gameObject.CompareTag("Trash"))
+            {
+                Debug.Log("Sees trash");
+                if (Input.GetKeyDown(KeyCode.E)){
+                    TrashPickUp();
+                }
+            }
+        }
+    }
 
 
 }
