@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -16,9 +17,11 @@ public class Player : MonoBehaviour
     Scene activeScene;
     int sceneNumber;
 
+    public GameObject UI;
 
     int trashPickedUp;
     RaycastHit Hit;
+
 
     bool isDead;
     // Start is called before the first frame update
@@ -79,6 +82,8 @@ public class Player : MonoBehaviour
     {
         trashPickedUp++;
         Destroy(Hit.transform.gameObject);
+
+        
     }
 
     /// <summary>
@@ -95,6 +100,8 @@ public class Player : MonoBehaviour
                 Debug.Log("Sees trash");
                 if (Input.GetKeyDown(KeyCode.E)){
                     TrashPickUp();
+                    UI.GetComponent<Points>().SetTrashPickUp(trashPickedUp);
+              
                 }
             }
         }
