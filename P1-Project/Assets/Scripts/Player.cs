@@ -4,10 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
+
 {
-    int currentHealth = 10;
-    int minHealth;
-    int maxHealth = 100;
+    public int currentLevel = 1;
+
+    public int currentHealth;
+    public int minHealth;
+    public int maxHealth;
+    int levelHealthIncreaser = 5;
 
     Scene activeScene;
     int sceneNumber;
@@ -20,8 +24,9 @@ public class Player : MonoBehaviour
         activeScene = SceneManager.GetActiveScene();
         sceneNumber = activeScene.buildIndex;
 
-        currentHealth = maxHealth;
+        maxHealth = (currentLevel * levelHealthIncreaser) + 95;
 
+        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
