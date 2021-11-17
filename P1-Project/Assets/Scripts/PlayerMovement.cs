@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    //Speed of the player
     public float speed;
+    //The height of the jump
     public float jump;
 
+    //A reference to the rigidbody of the player
     public Rigidbody rig;
     // Start is called before the first frame update
     void Start()
@@ -14,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-
+    //uwu
     // Update is called once per frame
     void Update()
     {
