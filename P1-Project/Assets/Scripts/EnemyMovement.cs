@@ -8,18 +8,21 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     GameObject target;
     Rigidbody rbTarget;
+    Player player;
+    readonly float speed = 7f;
 
-    float speed = 7f;
 
     RaycastHit Hit;
 
     Rigidbody rb;
 
+    int dmg = 1;
 
     void Start()
     {
         target = GameObject.Find("Player");
         rbTarget = target.GetComponent<Rigidbody>();
+        player = target.GetComponent<Player>();
         rb = GetComponent<Rigidbody>();
 
     }
@@ -45,7 +48,7 @@ public class EnemyMovement : MonoBehaviour
     /// </summary>
     void DefaultMove()
     {
-        rb.MovePosition(rb.position + (transform.forward) * Time.deltaTime * 10 * speed);
+        rb.MovePosition(rb.position + transform.forward * Time.deltaTime * speed);
     }
 
     /// <summary>
@@ -56,7 +59,7 @@ public class EnemyMovement : MonoBehaviour
         rb.position = Vector3.MoveTowards(rb.position, Hit.transform.position, speed * Time.deltaTime);
         if (Vector3.Distance(rb.position, Hit.transform.position) < 1f)
         {
-            transform.Rotate(new Vector3(0, Random.Range(0, 360), 0));
+            rb.transform.Rotate(new Vector3(0, Random.Range(0, 360), 0));
         }
     }
 
@@ -82,4 +85,19 @@ public class EnemyMovement : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            player.TakeDamage(dmg);
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            player.TakeDamage(dmg);
+        }
+    }
 }
