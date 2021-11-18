@@ -6,11 +6,12 @@ using TMPro;
 public class Resources : MonoBehaviour
 {
     public TextMeshPro trashCollected;
+    public TextMeshProUGUI textCounter;
 
 
     public void SetTrashCollectedText(int trash)
     {
-        trashCollected.SetText(trash.ToString());
-    }
+         textCounter.SetText("Trash:" + trash.ToString());
 
+    }
 }
