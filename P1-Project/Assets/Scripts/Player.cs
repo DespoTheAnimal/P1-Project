@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
 
     Rigidbody rb;
 
+    Resources resource;
+
     float height = 1f;
     RaycastHit Hit;
 
@@ -110,6 +112,7 @@ public class Player : MonoBehaviour
     {
         trashPickedUp++;
         Destroy(Hit.transform.gameObject);
+        resource.SetTrashCollectedText(trashPickedUp);
     }
 
     void PickUp()
