@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     int maxHealth;
 
     Rigidbody rb;
-
+    [SerializeField]
     Resources resource;
 
     float height = 1f;
