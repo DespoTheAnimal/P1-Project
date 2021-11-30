@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
     //TThe build index of the current scene
     int sceneNumber;
 
-
+    public bool inSafeZone = false;
     bool isDead;
     // Start is called before the first frame update
     void Start()
@@ -77,7 +77,7 @@ public class Player : MonoBehaviour
         healthBar.SetHealth(currentHealth);
     }
 
-    void Heal(int healing)
+    public void Heal(int healing)
     {
         currentHealth += healing;
         healthBar.SetHealth(currentHealth);

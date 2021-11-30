@@ -60,7 +60,7 @@ public class EnemyMovement : MonoBehaviour
         if (Vector3.Distance(rb.position, Hit.transform.position) < 1f)
         {
             rb.transform.Rotate(new Vector3(0, Random.Range(0, 360), 0));
-        }
+        } 
     }
 
     /// <summary>
@@ -78,7 +78,7 @@ public class EnemyMovement : MonoBehaviour
             
         } else if (Physics.Raycast(rb.position, transform.forward, out Hit, 20f)) {
             MoveToObject();
-        }
+        } 
         else {
             DefaultMove();
         }
@@ -90,6 +90,9 @@ public class EnemyMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             player.TakeDamage(dmg);
+        } else if (other.gameObject.CompareTag("SafeZone"))
+        {
+            rb.transform.Rotate(new Vector3(0, Random.Range(0,360),0));
         }
     }
 
