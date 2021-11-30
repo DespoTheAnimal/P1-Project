@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        FaceForward();
+        //FaceForward();
         IsDead();
         if (isDead)
         {
@@ -122,7 +122,7 @@ public class Player : MonoBehaviour
         {
             if (Hit.transform.gameObject.CompareTag("Trash"))
             {
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(KeyCode.R))
                 {
                     TrashPickUp();
                 }

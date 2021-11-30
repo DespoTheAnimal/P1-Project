@@ -41,10 +41,10 @@ InputManager:
     m_Name: Hover
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: mouse 0
-    positiveButton: mouse 1
-    altNegativeButton: s
-    altPositiveButton: w
+    negativeButton: tab
+    positiveButton: left shift
+    altNegativeButton: 
+    altPositiveButton: 
     gravity: 3
     dead: 0.001
     sensitivity: 3

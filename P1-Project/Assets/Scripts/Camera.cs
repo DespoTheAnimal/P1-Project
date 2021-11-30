@@ -15,14 +15,14 @@ public class Camera : MonoBehaviour
     float currentPan, currentTilt = 10, currenDistance = 5;
 
     //references
-    PlayerMovement player;
+    PlayerMovement1 player;
     public Transform tilt;
     [SerializeField]
     Camera mainCamera;
 
     void Start()
     {
-        player = FindObjectOfType<PlayerMovement>();
+        player = FindObjectOfType<PlayerMovement1>();
         //mainCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
 
         transform.position = player.transform.position + Vector3.up * cameraHeight;
