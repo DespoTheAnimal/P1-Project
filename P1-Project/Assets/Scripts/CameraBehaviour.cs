@@ -11,7 +11,7 @@ public class CameraBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        _player = GameObject.Find("player").GetComponent<Player>();
+        _player = GameObject.Find("Player").GetComponent<Player>();
         _player.GetComponent<Rigidbody>();
         _player.GetComponent<Transform>();
     }
