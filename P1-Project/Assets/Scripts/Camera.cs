@@ -2,23 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//This script was copied from Soupertrooper's video about camera movement - https://youtu.be/oKBUG89i5JA
+
 public class Camera : MonoBehaviour
 {
-    //input
-    KeyCode leftMouse = KeyCode.Mouse0, rightMouse = KeyCode.Mouse1, middleMouse = KeyCode.Mouse2;
+
+    // Mouse inputs
+    KeyCode leftMouse = KeyCode.Mouse0;
 
     // Camera variables
-    public float cameraHeight = 1.75f, cameraMaxDistance = 25;
+    private float cameraHeight = 1.75f, cameraMaxDistance = 25;
+    // Readonly float can only be changed in this line
     readonly float cameraMaxTilt = 90;
-    [Range(0,4)]
-    public float cameraSpeed = 2;
+    private float cameraSpeed = 2;
     float currentPan, currentTilt = 10, currenDistance = 5;
 
-    //Camera State
+    // CameraState(s) from the enum
     public CameraState cameraState = CameraState.CameraNone;
 
 
-    //references
+    // References 
     PlayerMovement1 player;
     public Transform tilt;
     [SerializeField]
@@ -26,12 +29,14 @@ public class Camera : MonoBehaviour
 
     void Start()
     {
+        // Player is getting the script "PlayerMovement1" into the Camera script
         player = FindObjectOfType<PlayerMovement1>();
-        //mainCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
 
+        // Transforming the camera's position according to the players position & rotation
         transform.position = player.transform.position + Vector3.up * cameraHeight;
         transform.rotation = player.transform.rotation;
 
+        // Tilts the camera with currentTilt's value
         tilt.eulerAngles = new Vector3(currentTilt, transform.eulerAngles.y, transform.eulerAngles.z);
         mainCamera.transform.position += tilt.forward * -currenDistance;
     }
