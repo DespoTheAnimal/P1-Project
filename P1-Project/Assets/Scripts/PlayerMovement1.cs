@@ -10,6 +10,7 @@ public class PlayerMovement1 : MonoBehaviour
     private float hoveAcceleration = 2f;
     [SerializeField]
     Vector2 inputs;
+    int swimUp;
     [SerializeField]
     float rotation;
     Vector3 vel;
@@ -57,7 +58,7 @@ public class PlayerMovement1 : MonoBehaviour
         vel = (transform.forward * inputNormalized.y + transform.right * inputNormalized.x) * speed;
         rb.velocity = vel;
         //moves the player up or down depending on the keypresses defineded in the "Hover" inputs        
-        activeHoverSpeed = Mathf.Lerp(activeHoverSpeed, Input.GetAxisRaw("Hover") * hoverSpeed, hoveAcceleration * Time.deltaTime);
+        activeHoverSpeed = Mathf.Lerp(activeHoverSpeed, swimUp * hoverSpeed, hoveAcceleration * Time.deltaTime);
         rb.position += (transform.up * activeHoverSpeed * Time.deltaTime);
     }
 
@@ -97,26 +98,19 @@ public class PlayerMovement1 : MonoBehaviour
                     break;
             }
         }
-
+        //Go upwards
+        if (Input.GetKey(controls.upwards))
+        {
+            swimUp = 1;
+        }
+        //No key pressed
+        if (!Input.GetKey(controls.upwards))
+        {
+            swimUp = 0;
+        }
     }
     void RotationInputs()
     {
         rotation = Input.GetAxis("Horizontal");
-       // (Input.GetKey(controls.rotateRight));
-        //{
-       //     rotation = 1;
-       // }
-       // if (Input.GetKey(controls.rotateLeft))
-       // {
-       //    if (Input.GetKey(controls.rotateRight))
-        //    {
-         //       rotation = 0;
-         //   } else
-          //  rotation = -1;
-      //  }
-       // if (!Input.GetKey(controls.rotateLeft) && !Input.GetKey(controls.rotateRight))
-       // {
-       //     rotation = 0;
-      //  }
     }
 }
