@@ -5,6 +5,6 @@ using UnityEngine;
 [System.Serializable]
 public class Controls 
 {
-    public KeyCode forward, backward, strafeLeft, strafeRight, rotateLeft, rotateRight, run;
+    public KeyCode strafeLeft, strafeRight, run;
 
 }

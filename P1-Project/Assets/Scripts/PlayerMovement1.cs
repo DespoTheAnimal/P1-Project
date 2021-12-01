@@ -56,7 +56,7 @@ public class PlayerMovement1 : MonoBehaviour
         //vel depends on the inputs and multiplies by the speed
         vel = (transform.forward * inputNormalized.y + transform.right * inputNormalized.x) * speed;
         rb.velocity = vel;
-        //moves the player up or down depending on the keypresses defineded in the "Hover" inputs
+        //moves the player up or down depending on the keypresses defineded in the "Hover" inputs        
         activeHoverSpeed = Mathf.Lerp(activeHoverSpeed, Input.GetAxisRaw("Hover") * hoverSpeed, hoveAcceleration * Time.deltaTime);
         rb.position += (transform.up * activeHoverSpeed * Time.deltaTime);
     }
@@ -64,7 +64,7 @@ public class PlayerMovement1 : MonoBehaviour
     void GetPosInputs()
     {
         //Sets the y coordinate of the input (-1 to 1) depending on the key press
-        inputs.y = Input.GetAxisRaw("Vertical");
+        inputs.y = Input.GetAxis("Vertical");
         //Strafe left
         if (Input.GetKey(controls.strafeRight))
         {
@@ -101,21 +101,22 @@ public class PlayerMovement1 : MonoBehaviour
     }
     void RotationInputs()
     {
-        if (Input.GetKey(controls.rotateRight))
-        {
-            rotation = 1;
-        }
-        if (Input.GetKey(controls.rotateLeft))
-        {
-            if (Input.GetKey(controls.rotateRight))
-            {
-                rotation = 0;
-            } else
-            rotation = -1;
-        }
-        if (!Input.GetKey(controls.rotateLeft) && !Input.GetKey(controls.rotateRight))
-        {
-            rotation = 0;
-        }
+        rotation = Input.GetAxis("Horizontal");
+       // (Input.GetKey(controls.rotateRight));
+        //{
+       //     rotation = 1;
+       // }
+       // if (Input.GetKey(controls.rotateLeft))
+       // {
+       //    if (Input.GetKey(controls.rotateRight))
+        //    {
+         //       rotation = 0;
+         //   } else
+          //  rotation = -1;
+      //  }
+       // if (!Input.GetKey(controls.rotateLeft) && !Input.GetKey(controls.rotateRight))
+       // {
+       //     rotation = 0;
+      //  }
     }
 }

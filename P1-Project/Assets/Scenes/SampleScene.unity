@@ -2793,15 +2793,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controls:
+    forward: 119
+    backward: 115
     strafeLeft: 113
-    strafeRight: 114
+    strafeRight: 101
     rotateLeft: 97
     rotateRight: 100
     run: 122
   hoverSpeed: 50
   inputs: {x: 0, y: 0}
   rotation: 0
-  baseSpeed: 13
+  baseSpeed: 20
   runSpeed: 26
   rotateSpeed: 2
   run: 0
@@ -2828,10 +2830,10 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 520654387}
   serializedVersion: 2
-  m_Mass: 0.0000001
+  m_Mass: 2
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
@@ -2844,7 +2846,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 520654387}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.2
   m_Height: 2.52
@@ -2880,7 +2882,12 @@ MonoBehaviour:
   fowardSpeed: 25
   strafeSpeed: 25
   hoverSpeed: 50
+  activeHoverSpeed: 0
+  hoveAcceleration: 2
   lookRateSpeed: 90
+  lookInput: {x: 0, y: 0}
+  screenCenter: {x: 0, y: 0}
+  mouseDistance: {x: 0, y: 0}
   rb: {fileID: 520654390}
 --- !u!1001 &526371892
 PrefabInstance:
@@ -7783,7 +7790,12 @@ MonoBehaviour:
   fowardSpeed: 25
   strafeSpeed: 25
   hoverSpeed: 50
+  activeHoverSpeed: 0
+  hoveAcceleration: 2
   lookRateSpeed: 90
+  lookInput: {x: 0, y: 0}
+  screenCenter: {x: 0, y: 0}
+  mouseDistance: {x: 0, y: 0}
   rb: {fileID: 1467469683}
 --- !u!1001 &1492052627
 PrefabInstance:
