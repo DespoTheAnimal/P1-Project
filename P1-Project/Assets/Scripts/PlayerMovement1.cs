@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//This scriptt was inspired by SouperTrooper's video https://www.youtube.com/watch?v=526OvMqEk_M
 public class PlayerMovement1 : MonoBehaviour
 {
     public Controls controls;

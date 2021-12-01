@@ -40,37 +40,24 @@ public class Player : MonoBehaviour
 
         maxHealth = 100;
 
-        currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        currentHealth = 30;
+        healthBar.SetMaxHealth(100);
+        healthBar.SetHealth(currentHealth);
         rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //FaceForward();
         IsDead();
         if (isDead)
         {
             Restartlvl();
         }
-
       PickUp();
 
     }
 
-
-    /// <summary>
-    /// If we are moving on the x or z axis, the forward position changes
-    /// </summary>
-    void FaceForward()
-    {
-        Vector3 vel = rb.velocity;
-        if(vel.x != 0 || vel.z != 0)
-        {
-            transform.forward = vel;
-        }
-    }
     public void TakeDamage(int dmg)
     {
         currentHealth -= dmg;
