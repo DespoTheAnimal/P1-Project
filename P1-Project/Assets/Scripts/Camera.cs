@@ -14,6 +14,10 @@ public class Camera : MonoBehaviour
     public float cameraSpeed = 2;
     float currentPan, currentTilt = 10, currenDistance = 5;
 
+    //Camera State
+    public CameraState cameraState = CameraState.CameraNone;
+
+
     //references
     PlayerMovement1 player;
     public Transform tilt;
@@ -35,16 +39,41 @@ public class Camera : MonoBehaviour
     
     void Update()
     {
+        if (Input.GetKey(leftMouse))
+            cameraState = CameraState.CameraRotate;
+        else
+            cameraState = CameraState.CameraNone;
+        CameraInputs();
+    }
+
+    private void LateUpdate()
+    {
         CameraTransforms();
     }
 
+    void CameraInputs()
+    {
+        if(cameraState != CameraState.CameraNone)
+           currentPan += Input.GetAxis("Mouse X") * cameraSpeed;
+        currentTilt -= Input.GetAxis("Mouse Y") * cameraSpeed;
+        currentTilt = Mathf.Clamp(currentTilt, -cameraMaxTilt, cameraMaxTilt);
+    }
     void CameraTransforms()
     {
+        switch(cameraState)
+        {
+            case CameraState.CameraNone:
+                currentPan = player.transform.eulerAngles.y;
+                currentTilt = 10;
+                break;
+        }
+
         //Cameras rotate is the same as the players
-        currentPan = player.transform.eulerAngles.y;
         transform.position = player.transform.position + Vector3.up * cameraHeight;
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, currentPan, transform.eulerAngles.z);
         tilt.eulerAngles = new Vector3(currentTilt, tilt.eulerAngles.y, tilt.eulerAngles.z);
         mainCamera.transform.position = transform.position + tilt.forward * -currenDistance;
     }
+
+    public enum CameraState { CameraNone, CameraRotate }
 }
