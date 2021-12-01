@@ -40,9 +40,8 @@ public class Player : MonoBehaviour
 
         maxHealth = 100;
 
-        currentHealth = 30;
-        healthBar.SetMaxHealth(100);
-        healthBar.SetHealth(currentHealth);
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
         rb = GetComponent<Rigidbody>();
     }
 

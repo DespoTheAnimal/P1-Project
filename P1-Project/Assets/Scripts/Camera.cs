@@ -12,7 +12,7 @@ public class Camera : MonoBehaviour
     readonly float cameraMaxTilt = 90;
     [Range(0,4)]
     public float cameraSpeed = 2;
-    float currentPan, currentTilt = 10, currenDistance = 5;
+    float currentPan, currentTilt = 15, currenDistance = 10;
 
     //Camera State
     public CameraState cameraState = CameraState.CameraNone;
