@@ -123,16 +123,7 @@ public class PlayerMovement1 : MonoBehaviour
         {
             SetStamina(maxStamina-1);
         }
-        //Go upwards
-        if (Input.GetKey(upwards))
-        {
-            swimUp = 1;
-        }
-        //No key pressed
-        if (!Input.GetKey(upwards))
-        {
-            swimUp = 0;
-        }
+        
     }
 
     void SetStamina(int amount)
