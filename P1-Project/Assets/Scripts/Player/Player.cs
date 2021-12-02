@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
 
         activeScene = SceneManager.GetActiveScene();
         sceneNumber = activeScene.buildIndex;
-
+        resource.SetTrashCollectedText(trashPickedUp);
         maxHealth = 100;
 
         currentHealth = maxHealth;

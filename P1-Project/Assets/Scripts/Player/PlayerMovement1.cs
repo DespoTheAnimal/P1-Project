@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerMovement1 : MonoBehaviour
 {
     public KeyCode upwards = KeyCode.Space, strafeLeft, strafeRight, sprint = KeyCode.LeftShift;
@@ -17,6 +18,15 @@ public class PlayerMovement1 : MonoBehaviour
     float pan;
     Vector3 vel;
     public float baseSpeed = 4f, runSpeed = 8f, rotateSpeed = 4f;
+
+    [SerializeField]
+    StaminaBar staminaBar;
+    int maxStamina;
+    int minStamina = 0;
+    int curStamina;
+    int staminaUse = 15;
+    WaitForSeconds regenTick = new WaitForSeconds(0.1f);
+    Coroutine regen;
 
     [SerializeField]
     bool run = true;
@@ -36,6 +46,10 @@ public class PlayerMovement1 : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         strafeLeft = KeyCode.Q;
         strafeRight = KeyCode.E;
+        maxStamina = 100;
+        curStamina = maxStamina;
+        staminaBar.SetMaxStamina(maxStamina);
+
     }
 
     // Update is called once per frame
@@ -44,6 +58,7 @@ public class PlayerMovement1 : MonoBehaviour
         GetPosInputs();
         RotationInputs();
         LocoMotion();
+        
     }
     void LocoMotion()
     {
@@ -104,13 +119,10 @@ public class PlayerMovement1 : MonoBehaviour
         {
             inputs.x = 0;
         }
-        if (Input.GetKey(sprint))
+        if (Input.GetKey(sprint)) //&& curStamina > maxStamina/2)
         {
-            run = true;
+            SetStamina(30);
         }
-        else run = false;
-
-
         //Go upwards
         if (Input.GetKey(upwards))
         {
@@ -122,6 +134,39 @@ public class PlayerMovement1 : MonoBehaviour
             swimUp = 0;
         }
     }
+
+    void SetStamina(int amount)
+    {
+        if (curStamina - amount > minStamina)
+        {
+            run = true;
+            curStamina -= amount;
+            staminaBar.SetStamina(curStamina);
+
+            if (regen != null)
+                StopCoroutine(regen);
+            Invoke("testRun", 2f);
+        regen = StartCoroutine(RegenStamina());
+        }
+            
+    }
+
+    private void testRun()
+    {
+        run = false;
+    }
+    private IEnumerator RegenStamina()
+    {
+        yield return new WaitForSeconds(10);
+
+        while (curStamina < maxStamina)
+        {
+            curStamina++;
+            staminaBar.SetStamina(curStamina);
+            yield return regenTick;
+        }
+        regen = null;
+    } 
 
     public float Axis(bool pos, bool neg)
     {
