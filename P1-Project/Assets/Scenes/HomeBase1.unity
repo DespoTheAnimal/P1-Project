@@ -5363,8 +5363,28 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2779160865195516835, guid: 1eb1ea7198d6e4eb2a8232b8d7822f85, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2779160865195516835, guid: 1eb1ea7198d6e4eb2a8232b8d7822f85, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2779160865195516835, guid: 1eb1ea7198d6e4eb2a8232b8d7822f85, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2779160865195516835, guid: 1eb1ea7198d6e4eb2a8232b8d7822f85, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2779160865195516835, guid: 1eb1ea7198d6e4eb2a8232b8d7822f85, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -103
+      objectReference: {fileID: 0}
+    - target: {fileID: 2779160865195516835, guid: 1eb1ea7198d6e4eb2a8232b8d7822f85, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -116
+      value: 42
       objectReference: {fileID: 0}
     - target: {fileID: 2779160865492613583, guid: 1eb1ea7198d6e4eb2a8232b8d7822f85, type: 3}
       propertyPath: m_Name
@@ -10043,7 +10063,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Title ...
+  m_text: Pollution Gathering
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5a18c0767880a48bc8ea400a20cb682f, type: 2}
   m_sharedMaterial: {fileID: -3584953638881519623, guid: 5a18c0767880a48bc8ea400a20cb682f, type: 2}
