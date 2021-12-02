@@ -5,13 +5,12 @@ using TMPro;
 
 public class Resources : MonoBehaviour
 {
-    public TextMeshPro trashCollected;
     public TextMeshProUGUI textCounter;
 
 
     public void SetTrashCollectedText(int trash)
     {
-         textCounter.SetText("Trash:" + trash.ToString());
+         textCounter.SetText("Pollution cleanded:" + trash.ToString() + " /10");
 
     }
 }
