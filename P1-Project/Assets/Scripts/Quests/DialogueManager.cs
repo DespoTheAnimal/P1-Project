@@ -51,4 +51,11 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("IsOpen", false);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown("space"))
+        {
+            DisplayNextSentence();
+        }
+    }
 }
