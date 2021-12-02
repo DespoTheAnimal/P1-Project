@@ -8,10 +8,15 @@ public class FishFollow : MonoBehaviour
     Rigidbody playerRb;
     float speed = 7f;
     // Update is called once per frame
-    void Update()
+    void Start()
     {
         rb = GetComponent<Rigidbody>();
         playerRb = GameObject.Find("Player").GetComponent<Rigidbody>();
+    }
+
+    private void Update()
+    {
+        MoveToPlayer();
     }
 
     void MoveToPlayer()
