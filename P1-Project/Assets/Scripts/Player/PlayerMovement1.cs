@@ -121,7 +121,7 @@ public class PlayerMovement1 : MonoBehaviour
         }
         if (Input.GetKey(sprint)) //&& curStamina > maxStamina/2)
         {
-            SetStamina(30);
+            SetStamina(maxStamina-1);
         }
         //Go upwards
         if (Input.GetKey(upwards))
@@ -145,7 +145,7 @@ public class PlayerMovement1 : MonoBehaviour
 
             if (regen != null)
                 StopCoroutine(regen);
-            Invoke("testRun", 2f);
+            Invoke("testRun", 3f);
         regen = StartCoroutine(RegenStamina());
         }
             
@@ -157,7 +157,7 @@ public class PlayerMovement1 : MonoBehaviour
     }
     private IEnumerator RegenStamina()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(2);
 
         while (curStamina < maxStamina)
         {
