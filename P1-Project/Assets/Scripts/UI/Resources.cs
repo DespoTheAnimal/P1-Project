@@ -10,7 +10,7 @@ public class Resources : MonoBehaviour
 
     public void SetTrashCollectedText(int trash)
     {
-         textCounter.SetText("Pollution cleanded:" + trash.ToString() + " /10");
+         textCounter.SetText("Dumpsites cleaned: " + trash.ToString() + "/10");
 
     }
 }
