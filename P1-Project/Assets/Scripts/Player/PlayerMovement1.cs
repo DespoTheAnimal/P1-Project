@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerMovement1 : MonoBehaviour
 {
-    public KeyCode upwards = KeyCode.Space, strafeLeft, strafeRight, sprint = KeyCode.LeftShift;
+    public KeyCode strafeLeft, strafeRight, sprint = KeyCode.LeftShift;
     //public Controls controls;
     public float hoverSpeed = 50f;
     private float activeHoverSpeed;
@@ -181,14 +181,11 @@ public class PlayerMovement1 : MonoBehaviour
     }
     void RotationInputs()
     {
-        if (steer)
-        {
-            Vector3 rotate = transform.eulerAngles + new Vector3(-pan, rotation * rotateSpeed, 0);
-            transform.eulerAngles = rotate;
-            rotation = Input.GetAxis("Mouse X") * mainCam.cameraSpeed;
-            pan = Input.GetAxis("Mouse Y") * mainCam.cameraSpeed;
-        }
-        else
-            rotation = Input.GetAxis("Horizontal");
+
+        Vector3 rotate = transform.eulerAngles + new Vector3(-pan, rotation * rotateSpeed, 0);
+        transform.eulerAngles = rotate;
+        rotation = Input.GetAxis("Mouse X") * mainCam.cameraSpeed;
+        pan = Input.GetAxis("Mouse Y") * mainCam.cameraSpeed;
+
     }
 }
