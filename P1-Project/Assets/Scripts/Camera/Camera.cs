@@ -17,8 +17,7 @@ public class Camera : MonoBehaviour
     public float cameraSpeed = 2;
     float currentPan, currentTilt = 10, currenDistance = 5;
 
-    // CameraState(s) from the enum
-    public CameraState cameraState = CameraState.CameraNone;
+
     public Controls controls;
 
 
@@ -43,15 +42,13 @@ public class Camera : MonoBehaviour
         // Tilts the camera with currentTilt's value
         tilt.eulerAngles = new Vector3(currentTilt, transform.eulerAngles.y, transform.eulerAngles.z);
         mainCamera.transform.position += tilt.forward * -currenDistance;
+        
+
     }
 
 
     void Update()
     {
-        if (Input.GetKey(leftMouse) && !Input.GetKey(rightMouse))
-            cameraState = CameraState.CameraSteer;
-        else if (!Input.GetKey(rightMouse) && !Input.GetKey(leftMouse))
-            cameraState = CameraState.CameraNone;
         CameraInputs();
     }
 
@@ -62,18 +59,7 @@ public class Camera : MonoBehaviour
 
     void CameraInputs()
     {
-        if (cameraState != CameraState.CameraNone)
-        {
-            // Sets the bool of player.steer to true, when in CameraState.cameraSteer
-            if (cameraState == CameraState.CameraSteer)
-                if (!player.steer)
-                    player.steer = true;
-        }
-        else if (cameraState == CameraState.CameraNone)
-        {
-            if (player.steer)
-                player.steer = false;
-        }
+       
         currentPan += Input.GetAxis("Mouse X") * cameraSpeed;
         currentTilt -= Input.GetAxis("Mouse Y") * cameraSpeed;
         currentTilt = Mathf.Clamp(currentTilt, -cameraMaxTilt, cameraMaxTilt);
@@ -81,26 +67,13 @@ public class Camera : MonoBehaviour
     }
     void CameraTransforms()
     {
-        switch (cameraState)
-        {
-            case CameraState.CameraSteer:
+
                 currentPan = player.transform.eulerAngles.y;
                 player.strafeLeft = KeyCode.A;
                 player.strafeRight = KeyCode.D;
                 Cursor.lockState = CursorLockMode.Locked;
 
-                break;
 
-            case CameraState.CameraNone:
-                currentPan = player.transform.eulerAngles.y;
-                player.strafeLeft = KeyCode.Q;
-                player.strafeRight = KeyCode.E;
-                Cursor.lockState = CursorLockMode.None;
-                break;
-        }
-
-        if (cameraState == CameraState.CameraNone)
-            currentTilt = 10;
 
         //Cameras rotate is the same as the players
         transform.position = player.transform.position + Vector3.up * cameraHeight;
@@ -109,5 +82,5 @@ public class Camera : MonoBehaviour
         mainCamera.transform.position = transform.position + tilt.forward * -currenDistance;
     }
 
-    public enum CameraState { CameraNone, CameraRotate, CameraSteer }
+
 }
