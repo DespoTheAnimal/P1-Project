@@ -16,7 +16,7 @@ public class EnemyMovement : MonoBehaviour
 
     Rigidbody rb;
 
-    int dmg = 1;
+    int dmg = 2;
 
     void Start()
     {
@@ -71,12 +71,12 @@ public class EnemyMovement : MonoBehaviour
     void Move()
     {
         float distanceToTarget = Vector3.Distance(rb.position, rbTarget.position);
-        float FollowDistance = 7f;
+        float FollowDistance = 20f;
         if (distanceToTarget < FollowDistance)
         {
             MoveToPlayer();
             
-        } else if (Physics.Raycast(rb.position, transform.forward, out Hit, 20f)) {
+        } else if (Physics.Raycast(rb.position, transform.forward, out Hit, 40f)) {
             MoveToObject();
         } 
         else {
