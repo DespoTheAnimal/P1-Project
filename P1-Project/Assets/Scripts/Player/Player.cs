@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     RaycastHit Hit;
 
     bool showTrashText = false;
-    int trashPickedUp;
+    public int trashPickedUp;
 
     //Getting a reference to the current scene
     Scene activeScene;

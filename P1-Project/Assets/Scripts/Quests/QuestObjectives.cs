@@ -21,7 +21,16 @@ public class QuestObjectives
         return (currentAmount >= requiredAmount);
     }
 
+    void TrashObjective()
+    {
+        if (objectiveType == objectiveType.cleanUp)
+        {
+            currentAmount = GameObject.Find("Player").GetComponent<Player>().trashPickedUp;
+            requiredAmount = 10;
+        }
+    }
 }
+
 
 // this creates the different types of objectives for the quests. E.g. that we have gathering quests and clean-up quests
 public enum objectiveType
