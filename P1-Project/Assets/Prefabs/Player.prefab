@@ -265,21 +265,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f181c21349c604e7788becbb79756463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controls:
-    upwards: 304
-    downwards: 9
-    strafeLeft: 113
-    strafeRight: 101
-    run: 122
+  upwards: 32
+  strafeLeft: 0
+  strafeRight: 0
+  sprint: 304
   hoverSpeed: 50
   inputs: {x: 0, y: 0}
-  swim: 0
   rotation: 0
   baseSpeed: 20
   runSpeed: 26
   rotateSpeed: 2
+  staminaBar: {fileID: 0}
   run: 0
-  timer: 0
+  steer: 0
+  mainCam: {fileID: 0}
 --- !u!114 &445594501682726736
 MonoBehaviour:
   m_ObjectHideFlags: 0
