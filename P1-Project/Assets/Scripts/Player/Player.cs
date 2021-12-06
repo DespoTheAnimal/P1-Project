@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     float height = 1f;
     RaycastHit Hit;
 
+    bool showTrashText = false;
     int trashPickedUp;
 
     //Getting a reference to the current scene
@@ -107,12 +108,24 @@ public class Player : MonoBehaviour
         if (Physics.SphereCast(rb.position, height, transform.forward, out Hit, distanceToTrash))
         {
             if (Hit.transform.gameObject.CompareTag("Trash"))
+                showTrashText = true;
             {
                 if (Input.GetKeyDown(KeyCode.R))
                 {
                     TrashPickUp();
                 }
             }
+
+        }
+        else showTrashText = false;
+    }
+
+    private void OnGUI()
+    {
+        if (showTrashText)
+        {
+            GUI.Label(new Rect(Screen.width / 2 - 75,
+                 Screen.height / 2, 200, 100), "Press R to pick up trash!");
         }
     }
 }
