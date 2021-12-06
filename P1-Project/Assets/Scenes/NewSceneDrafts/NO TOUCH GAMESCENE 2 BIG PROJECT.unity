@@ -9181,8 +9181,8 @@ MonoBehaviour:
   hoverSpeed: 50
   inputs: {x: 0, y: 0}
   rotation: 0
-  baseSpeed: 4
-  runSpeed: 8
+  baseSpeed: 20
+  runSpeed: 75
   rotateSpeed: 4
   staminaBar: {fileID: 1869362375}
   run: 1
@@ -9198,10 +9198,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.32
+  m_Height: 1.62
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0.61}
 --- !u!1001 &1353651617
 PrefabInstance:
   m_ObjectHideFlags: 0
