@@ -8,7 +8,7 @@ public class QuestGiver : MonoBehaviour
 {
     public Quests quest;
 
-    public Player player;
+   // public Player player;
    // public Animator animator;
 
     public GameObject questWindow;

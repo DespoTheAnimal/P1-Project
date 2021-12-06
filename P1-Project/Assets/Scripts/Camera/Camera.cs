@@ -42,10 +42,8 @@ public class Camera : MonoBehaviour
         // Tilts the camera with currentTilt's value
         tilt.eulerAngles = new Vector3(currentTilt, transform.eulerAngles.y, transform.eulerAngles.z);
         mainCamera.transform.position += tilt.forward * -currenDistance;
-        
 
     }
-
 
     void Update()
     {
@@ -67,13 +65,10 @@ public class Camera : MonoBehaviour
     }
     void CameraTransforms()
     {
-
-                currentPan = player.transform.eulerAngles.y;
-                player.strafeLeft = KeyCode.A;
-                player.strafeRight = KeyCode.D;
-                Cursor.lockState = CursorLockMode.Locked;
-
-
+        currentPan = player.transform.eulerAngles.y;
+        player.strafeLeft = KeyCode.A;
+        player.strafeRight = KeyCode.D;
+        Cursor.lockState = CursorLockMode.Locked;
 
         //Cameras rotate is the same as the players
         transform.position = player.transform.position + Vector3.up * cameraHeight;
@@ -81,6 +76,4 @@ public class Camera : MonoBehaviour
         tilt.eulerAngles = new Vector3(currentTilt, tilt.eulerAngles.y, tilt.eulerAngles.z);
         mainCamera.transform.position = transform.position + tilt.forward * -currenDistance;
     }
-
-
 }
