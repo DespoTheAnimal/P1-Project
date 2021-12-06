@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerMovement1 : MonoBehaviour
 {
-    public KeyCode strafeLeft, strafeRight, sprint = KeyCode.LeftShift;
+    public KeyCode upwards = KeyCode.Space, strafeLeft, strafeRight, sprint = KeyCode.LeftShift;
     //public Controls controls;
     public float hoverSpeed = 50f;
     private float activeHoverSpeed;
@@ -121,9 +121,18 @@ public class PlayerMovement1 : MonoBehaviour
         }
         if (Input.GetKey(sprint)) //&& curStamina > maxStamina/2)
         {
-            SetStamina(maxStamina-1);
+            SetStamina(30);
         }
-        
+        //Go upwards
+        if (Input.GetKey(upwards))
+        {
+            swimUp = 1;
+        }
+        //No key pressed
+        if (!Input.GetKey(upwards))
+        {
+            swimUp = 0;
+        }
     }
 
     void SetStamina(int amount)
@@ -136,7 +145,7 @@ public class PlayerMovement1 : MonoBehaviour
 
             if (regen != null)
                 StopCoroutine(regen);
-            Invoke("testRun", 3f);
+            Invoke("testRun", 2f);
         regen = StartCoroutine(RegenStamina());
         }
             
@@ -148,7 +157,7 @@ public class PlayerMovement1 : MonoBehaviour
     }
     private IEnumerator RegenStamina()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(10);
 
         while (curStamina < maxStamina)
         {
@@ -172,11 +181,14 @@ public class PlayerMovement1 : MonoBehaviour
     }
     void RotationInputs()
     {
-
-        Vector3 rotate = transform.eulerAngles + new Vector3(-pan, rotation * rotateSpeed, 0);
-        transform.eulerAngles = rotate;
-        rotation = Input.GetAxis("Mouse X") * mainCam.cameraSpeed;
-        pan = Input.GetAxis("Mouse Y") * mainCam.cameraSpeed;
-
+        if (steer)
+        {
+            Vector3 rotate = transform.eulerAngles + new Vector3(-pan, rotation * rotateSpeed, 0);
+            transform.eulerAngles = rotate;
+            rotation = Input.GetAxis("Mouse X") * mainCam.cameraSpeed;
+            pan = Input.GetAxis("Mouse Y") * mainCam.cameraSpeed;
+        }
+        else
+            rotation = Input.GetAxis("Horizontal");
     }
 }
