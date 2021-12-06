@@ -121,7 +121,7 @@ public class PlayerMovement1 : MonoBehaviour
         }
         if (Input.GetKey(sprint)) //&& curStamina > maxStamina/2)
         {
-            SetStamina(30);
+            SetStamina(maxStamina-1);
         }
         //Go upwards
         if (Input.GetKey(upwards))
@@ -157,7 +157,7 @@ public class PlayerMovement1 : MonoBehaviour
     }
     private IEnumerator RegenStamina()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(2);
 
         while (curStamina < maxStamina)
         {
@@ -181,14 +181,9 @@ public class PlayerMovement1 : MonoBehaviour
     }
     void RotationInputs()
     {
-        if (steer)
-        {
             Vector3 rotate = transform.eulerAngles + new Vector3(-pan, rotation * rotateSpeed, 0);
             transform.eulerAngles = rotate;
             rotation = Input.GetAxis("Mouse X") * mainCam.cameraSpeed;
             pan = Input.GetAxis("Mouse Y") * mainCam.cameraSpeed;
-        }
-        else
-            rotation = Input.GetAxis("Horizontal");
     }
 }
