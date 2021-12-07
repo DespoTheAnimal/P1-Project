@@ -9,7 +9,7 @@ public class EnemyMovement : MonoBehaviour
     GameObject target;
     Rigidbody rbTarget;
     Player player;
-    readonly float speed = 7f;
+    readonly float speed = 14f;
 
 
     RaycastHit Hit;
@@ -41,6 +41,7 @@ public class EnemyMovement : MonoBehaviour
     void MoveToPlayer()
     {
         rb.position = Vector3.MoveTowards(rb.position, rbTarget.position, speed * Time.deltaTime);
+        transform.LookAt(rbTarget.position);
     }
 
     /// <summary>
@@ -57,7 +58,9 @@ public class EnemyMovement : MonoBehaviour
     void MoveToObject()
     {
         rb.position = Vector3.MoveTowards(rb.position, Hit.transform.position, speed * Time.deltaTime);
-        if (Vector3.Distance(rb.position, Hit.transform.position) < 1f)
+        transform.LookAt(Hit.transform.position);
+        float distanceToWall = 20f;
+        if (Vector3.Distance(rb.position, Hit.transform.position) < distanceToWall)
         {
             rb.transform.Rotate(new Vector3(0, Random.Range(0, 360), 0));
         } 
@@ -71,12 +74,12 @@ public class EnemyMovement : MonoBehaviour
     void Move()
     {
         float distanceToTarget = Vector3.Distance(rb.position, rbTarget.position);
-        float FollowDistance = 20f;
+        float FollowDistance = 40f;
         if (distanceToTarget < FollowDistance)
         {
             MoveToPlayer();
             
-        } else if (Physics.Raycast(rb.position, transform.forward, out Hit, 40f)) {
+        } else if (Physics.Raycast(rb.position, transform.forward, out Hit, 80f)) {
             MoveToObject();
         } 
         else {
