@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class FishFollow : MonoBehaviour
 {
+    //references
     Rigidbody rb;
     Rigidbody playerRb;
+
+    //the speed of the gameobject
     float speed = 7f;
-    // Update is called once per frame
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -18,7 +21,9 @@ public class FishFollow : MonoBehaviour
     {
         MoveToPlayer();
     }
-
+    /// <summary>
+    /// If the Player gameObject it close, it follows it
+    /// </summary>
     void MoveToPlayer()
     {
         float distanceToTarget = Vector3.Distance(rb.position, playerRb.position);
