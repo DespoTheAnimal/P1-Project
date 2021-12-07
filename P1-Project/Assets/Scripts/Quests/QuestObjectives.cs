@@ -7,7 +7,9 @@ using TMPro;
 
 public class QuestObjectives : MonoBehaviour
 {
+    //Reference to the resources
     public Resources resource;
+
     [SerializeField]
     public objectiveType objectiveType;
 
@@ -19,7 +21,11 @@ public class QuestObjectives : MonoBehaviour
     [SerializeField]
     public int currentAmount;
 
-
+    private void Update()
+    {
+        CleanUpObjective();
+        CompleteObjective();
+    }
 
     // this will check whether or not the player has reached the quest objective by seeing if the current amount is greater than or equal to the required amount
     // basically it says if the above is true, then "true" will be returned for the function, otherwise it will return false
@@ -28,6 +34,9 @@ public class QuestObjectives : MonoBehaviour
         return (currentAmount >= requiredAmount);
     }
 
+    /// <summary>
+    /// if the objective is complete, the text on the screen will change
+    /// </summary>
     void CompleteObjective()
     {
         if (isReached())
@@ -38,18 +47,18 @@ public class QuestObjectives : MonoBehaviour
 
         }
     }
-    private void Update()
-    {
-        TrashObjective();
-        CompleteObjective();
-    }
-    void TrashObjective()
+
+    /// <summary>
+    /// If the objectivetype is cleanUp the objective text will be changed to "Pollution gathering", currentamount will be
+    /// how much trash is picked up and the requiredamount is the amount of trash in the scene
+    /// </summary>
+    void CleanUpObjective()
     {
         if (objectiveType == objectiveType.cleanUp)
         {
             resource.SetObjectiveText("Pollution Gathering");
             currentAmount = GameObject.Find("Player").GetComponent<Player>().trashPickedUp;
-            requiredAmount = 10;
+            requiredAmount = resource.trashInScene;
         }
     }
 }
