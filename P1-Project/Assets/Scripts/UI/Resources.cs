@@ -26,8 +26,6 @@ public class Resources : MonoBehaviour
     private void Awake()
     {
         trashList.AddRange(GameObject.FindGameObjectsWithTag("Trash"));
-        Debug.Log(trashList.Count);
-
     }
 
     /// <summary>

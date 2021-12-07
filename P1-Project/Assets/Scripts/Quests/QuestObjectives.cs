@@ -63,7 +63,6 @@ public class QuestObjectives : MonoBehaviour
     }
 }
 
-
 // this creates the different types of objectives for the quests. E.g. that we have gathering quests and clean-up quests
 public enum objectiveType
 {

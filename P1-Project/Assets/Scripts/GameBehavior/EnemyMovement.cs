@@ -42,16 +42,18 @@ public class EnemyMovement : MonoBehaviour
     /// </summary>
     void MoveToPlayer()
     {
+        float distanceToTarget = Vector3.Distance(rb.position, rbTarget.position);
+        float distance = 3f;
 
-       if(player.inSafeZone == false)
+        if (player.inSafeZone == false )
         {
             rb.position = Vector3.MoveTowards(rb.position, rbTarget.position, speed * Time.deltaTime);
-            transform.LookAt(rbTarget.position);
+            if (distance < distanceToTarget)
+                transform.LookAt(rbTarget.position);
         } else
         {
             DefaultMove();
-        }
-           
+        }  
     }
 
     /// <summary>
@@ -88,7 +90,7 @@ public class EnemyMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             player.TakeDamage(dmg);
-        } 
+       } 
     }
 
     //The enemy keeps dealing damage when touching the player
