@@ -108,8 +108,9 @@ public class Player : MonoBehaviour
         if (Physics.SphereCast(rb.position, height, transform.forward, out Hit, distanceToTrash))
         {
             if (Hit.transform.gameObject.CompareTag("Trash"))
+            { 
                 showTrashText = true;
-            {
+            
                 if (Input.GetKeyDown(KeyCode.R))
                 {
                     TrashPickUp();
