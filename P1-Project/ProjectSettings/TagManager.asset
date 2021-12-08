@@ -8,6 +8,7 @@ TagManager:
   - Trash
   - SafeZone
   - Companion
+  - friendlyFish
   layers:
   - Default
   - TransparentFX
