@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
     /// </summary>
     bool IsDead()
     {
-        if (currentHealth < minHealth)
+        if (currentHealth <= minHealth)
         {
             return true;
         }
