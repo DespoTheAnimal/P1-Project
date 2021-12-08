@@ -137,6 +137,7 @@ public class Player : MonoBehaviour
         else showTrashText = false;
     }
 
+
     /// <summary>
     /// Shows text on screen
     /// </summary>
