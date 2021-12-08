@@ -9,11 +9,6 @@ public class PlayerMovement : MonoBehaviour
     //variables for keycodes
     KeyCode upwards = KeyCode.Space, strafeLeft = KeyCode.A, strafeRight = KeyCode.D, sprint = KeyCode.LeftShift;
 
-    //speed for swiming up or down
-    float hoverSpeed = 50f;
-    private float activeHoverSpeed;
-    private float hoveAcceleration = 2f;
-
     //1 if the player should swim up 0 if not
     int swimUp;
     //The input being pressed
@@ -53,8 +48,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        strafeLeft = KeyCode.Q;
-        strafeRight = KeyCode.E;
+        //strafeLeft = KeyCode.Q;
+        //strafeRight = KeyCode.E;
         maxStamina = 100;
         curStamina = maxStamina;
         staminaBar.SetMaxStamina(maxStamina);
@@ -98,8 +93,7 @@ public class PlayerMovement : MonoBehaviour
         vel = (transform.forward * inputNormalized.y + transform.right * inputNormalized.x) * speed;
         rb.velocity = vel;
         //moves the player up or down depending on the keypresses       
-        activeHoverSpeed = Mathf.Lerp(activeHoverSpeed, swimUp * hoverSpeed, hoveAcceleration * Time.deltaTime);
-        rb.position += (transform.up * activeHoverSpeed * Time.deltaTime);
+        rb.position += (transform.up * swimUp * Time.deltaTime);
     }
 
     /// <summary>
@@ -138,7 +132,7 @@ public class PlayerMovement : MonoBehaviour
         //Go upwards
         if (Input.GetKey(upwards))
         {
-            swimUp = 1;
+            swimUp = 10;
         }
         //No key pressed
         if (!Input.GetKey(upwards))
