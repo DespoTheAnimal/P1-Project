@@ -148,7 +148,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 rotate = transform.eulerAngles + new Vector3(-pan, rotation * rotateSpeed, 0);
         transform.eulerAngles = rotate;
         rotation = Input.GetAxis("Mouse X") * mainCam.cameraSpeed;
-        pan = Input.GetAxis("Mouse Y") * mainCam.cameraSpeed;
+        pan = Input.GetAxis("Mouse Y") * mainCam.cameraSpeed * mainCam.cameraExtraSpeed;
     }
     /// <summary>
     /// Lets the player do a stamina boost if it has enough stamina

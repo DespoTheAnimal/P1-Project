@@ -14,6 +14,7 @@ public class Camera : MonoBehaviour
     readonly float cameraMaxTilt = 75;
     //The sensitivity of the mouse
     public float cameraSpeed = 2;
+    public float cameraExtraSpeed = 2;
     //variables for pan, tilt and distance
     float currentPan, currentTilt = 10, currenDistance = 5;
 
@@ -55,7 +56,7 @@ public class Camera : MonoBehaviour
     void CameraInputs()
     {
         currentPan += Input.GetAxis("Mouse X") * cameraSpeed;
-        currentTilt -= Input.GetAxis("Mouse Y") * cameraSpeed;
+        currentTilt -= Input.GetAxis("Mouse Y") * cameraSpeed * cameraExtraSpeed;
         currentTilt = Mathf.Clamp(currentTilt, -cameraMaxTilt, cameraMaxTilt);
     }
 
