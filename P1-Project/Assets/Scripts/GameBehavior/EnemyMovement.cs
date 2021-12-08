@@ -55,20 +55,19 @@ public class EnemyMovement : MonoBehaviour
     /// <summary>
     /// Moves the enemy to an object in the forrward direction, if it gets close to the object the direction changes
     /// </summary>
-    void MoveToObject()
-    {
-        rb.position = Vector3.MoveTowards(rb.position, Hit.transform.position, speed * Time.deltaTime);
-        transform.LookAt(Hit.transform.position);
-        float distanceToWall = 20f;
-        if (Vector3.Distance(rb.position, Hit.transform.position) < distanceToWall)
-        {
-            rb.transform.Rotate(new Vector3(0, Random.Range(0, 360), 0));
-        } 
-    }
+   // void MoveToObject()
+    //{
+      //  if (Vector3.Distance(rb.position, Hit.transform.position) > 1f){
+      //      rb.position = Vector3.MoveTowards(rb.position, Hit.transform.position, speed * Time.deltaTime);
+      //      transform.LookAt(Hit.transform.position);
+      //  } else { 
+      //      rb.transform.Rotate(new Vector3(0, Random.Range(0, 360), 0));
+      //  } 
+    //}
 
     /// <summary>
     /// if the enemy is close to the player it moves towards the player, 
-    /// if the enemy is "sees" an object it moves towards it 
+    /// if the enemy "sees" an object it moves towards it 
     /// else it moves foreward until it finds an object or player
     /// </summary>
     void Move()
@@ -79,8 +78,9 @@ public class EnemyMovement : MonoBehaviour
         {
             MoveToPlayer();
             
-        } else if (Physics.Raycast(rb.position, transform.forward, out Hit, 80f)) {
-            MoveToObject();
+        } else if (Physics.Raycast(rb.position, transform.forward, out Hit, 2f)) {
+            //MoveToObject();
+            rb.transform.Rotate(new Vector3(0, Random.Range(0, 360), 0));
         } 
         else {
             DefaultMove();
