@@ -7,13 +7,6 @@ public class SafeZones : MonoBehaviour
     //The amount of health of the safezone
     int giveHealth = 1;
 
-    Player player;
-
-    private void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-    }
-
     /// <summary>
     /// Checks for colliders entering the trigger
     /// </summary>
@@ -24,6 +17,7 @@ public class SafeZones : MonoBehaviour
         //and sets the inSafeZone variable to true
         if (other.gameObject.CompareTag("Player"))
         {
+            Player player = other.GetComponent<Player>();
             player.Heal(giveHealth);
             player.inSafeZone = true;
         }
@@ -38,7 +32,9 @@ public class SafeZones : MonoBehaviour
         //heals the player
         if (other.gameObject.CompareTag("Player"))
         {
+            Player player = other.GetComponent<Player>();
             player.Heal(giveHealth);
+
         }
     }
 
@@ -51,6 +47,8 @@ public class SafeZones : MonoBehaviour
         //Stops healing the player, and sets the inSafeZone variable to false
         if (other.gameObject.CompareTag("Player"))
         {
+            Player player = other.GetComponent<Player>();
+            player.Heal(0);
             player.inSafeZone = false;
         }
     }
