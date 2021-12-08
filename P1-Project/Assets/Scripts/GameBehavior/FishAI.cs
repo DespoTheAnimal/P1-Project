@@ -7,7 +7,7 @@ public class FishAI : MonoBehaviour
 
     Rigidbody rb;
 
-    float speed = 10f;
+    public float speed = 10f;
 
     RaycastHit Hit;
 
@@ -16,8 +16,14 @@ public class FishAI : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        setSpeed();
     }
 
+    void setSpeed()
+    {
+        speed = (Random.Range(10, 20));
+
+    }
     // Update is called once per frame
     void Update()
     {

@@ -6,6 +6,10 @@ public class Spawner : MonoBehaviour
 {
     public GameObject fish;
     public GameObject fish2;
+    public GameObject fish3;
+    public GameObject fish4;
+    public GameObject fish5;
+
     List<GameObject> instantiationList = new List<GameObject>();
 
     Vector3 min;
@@ -69,7 +73,7 @@ public class Spawner : MonoBehaviour
     /// <returns></returns>
     bool canInstantiate()
     {
-        if (instantiationList.Count < 100)
+        if (instantiationList.Count < 1000)
         {
             return true;
         }
@@ -81,14 +85,29 @@ public class Spawner : MonoBehaviour
     /// </summary>
     void randomfish()
     {
-        int rnd = Random.Range(0, 2);
-        if (rnd == 0)
+        int rnd = Random.Range(0, 5);
+
+        switch (rnd)
         {
-            instantiateOBJ = fish;
-        } else 
-        {
-            instantiateOBJ = fish2;
+            case 0:
+                instantiateOBJ = fish;
+                break;
+            case 1:
+                instantiateOBJ = fish2;
+                break;
+            case 2:
+                instantiateOBJ = fish3;
+                break;
+            case 3:
+                instantiateOBJ = fish4;
+                break;
+            case 4:
+                instantiateOBJ = fish5;
+                break;
+            default:
+                break;
         }
+        
     }
     
     private void InstantiateObject()
