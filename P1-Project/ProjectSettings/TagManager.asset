@@ -9,6 +9,8 @@ TagManager:
   - SafeZone
   - Companion
   - friendlyFish
+  - FxTemporaire
+  - Chemicals
   layers:
   - Default
   - TransparentFX
