@@ -174,7 +174,7 @@ public class Player : MonoBehaviour
             {
                 if(Hit.transform.GetComponent<InformFish>().beingInformed == false)
                 {
-                    showInformText = true;
+                        showInformText = true;
                     if (Input.GetKeyDown(KeyCode.R))
                     {
                         Hit.transform.GetComponent<InformFish>().beingInformed = true;
