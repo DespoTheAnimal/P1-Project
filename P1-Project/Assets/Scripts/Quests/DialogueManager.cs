@@ -13,9 +13,17 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<string> sentences;
 
+    private float waitTime = 5f;
+
+
     void Awake()
     {
         sentences = new Queue<string>();
+    }
+
+    private void Start()
+    {
+        StartCoroutine(WaitBeforeShow(waitTime));
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -34,6 +42,7 @@ public class DialogueManager : MonoBehaviour
         DisplayNextSentence();
     }
 
+    
     public void DisplayNextSentence()
     {
         if (sentences.Count == 0)
@@ -41,7 +50,6 @@ public class DialogueManager : MonoBehaviour
             EndDialogue();
             return;
         }
-
         string sentence = sentences.Dequeue();
         dialogueText.text = sentence;
     }
@@ -53,8 +61,17 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown("space"))
+        /*if (Input.GetKeyDown("space"))
         {
+            DisplayNextSentence();
+        }*/
+    }
+
+    private IEnumerator WaitBeforeShow(float time)
+    {     
+        while (enabled)
+        {
+            yield return new WaitForSeconds(time);
             DisplayNextSentence();
         }
     }
