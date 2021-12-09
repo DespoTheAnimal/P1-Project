@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1995540957}
   - component: {fileID: 1995540956}
   m_Layer: 0
-  m_Name: "F\xE6rdig skildpadde i blender (med hjelm)"
+  m_Name: Skjoldbert
   m_TagString: SafeFish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
