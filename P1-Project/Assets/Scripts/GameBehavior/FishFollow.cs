@@ -8,6 +8,7 @@ public class FishFollow : MonoBehaviour
     Rigidbody rb;
     Rigidbody playerRb;
 
+    bool safeFromDanger = false;
     //the speed of the gameobject
     float speed = 7f;
 
@@ -26,12 +27,24 @@ public class FishFollow : MonoBehaviour
     /// </summary>
     void MoveToPlayer()
     {
-        float distanceToTarget = Vector3.Distance(rb.position, playerRb.position);
-        float followDistance = 10f;
-        if (distanceToTarget < followDistance )
+        if (safeFromDanger == false)
         {
-            rb.position = Vector3.MoveTowards(rb.position, playerRb.position, speed * Time.deltaTime);
+            float distanceToTarget = Vector3.Distance(rb.position, playerRb.position);
+            float followDistance = 10f;
+            if (distanceToTarget < followDistance)
+            {
+                rb.position = Vector3.MoveTowards(rb.position, playerRb.position, speed * Time.deltaTime);
+            }
         }
+       
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("HomeBase"))
+        {
+            safeFromDanger = true;
+
+        }
+    }
 }
