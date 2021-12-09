@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
     bool showRepairText = false;
     public int coralsCleansed;
 
+    bool showUnstuckText = false;
+
     //Getting a reference to the current scene
     Scene activeScene;
     //The build index of the current scene
@@ -147,9 +149,7 @@ public class Player : MonoBehaviour
                 {
                     TrashPickUp();
                 }
-            }
-
-            else if (Hit.transform.gameObject.CompareTag("Coral"))
+            }  else if (Hit.transform.gameObject.CompareTag("Coral"))
             {
                 showRepairText = true;
 
@@ -157,13 +157,23 @@ public class Player : MonoBehaviour
                 {
                     CleanseCorals();
                 }
+            } else if (Hit.transform.gameObject.CompareTag("SafeFish"))
+            {
+                if (Hit.transform.GetComponent<FishFollow>().stuckInTrash == true)
+                {
+                    showUnstuckText = true;
+                    if (Input.GetKeyDown(KeyCode.R))
+                    {
+                        Hit.transform.GetComponent<FishFollow>().stuckInTrash = false;
+                    }
+                }   
             }
-
         }
         else
         {
             showTrashText = false;
             showRepairText = false;
+            showUnstuckText = false;
         }
 
     }
@@ -186,6 +196,12 @@ public class Player : MonoBehaviour
         {
             GUI.Label(new Rect(Screen.width / 2 - 75,
                  Screen.height / 2, 200, 100), "Press R to repair coral!");
+        }
+
+        if (showUnstuckText)
+        {
+            GUI.Label(new Rect(Screen.width / 2 - 75,
+                 Screen.height / 2, 200, 100), "Press R to help Bobbles!");
         }
     }
 }
