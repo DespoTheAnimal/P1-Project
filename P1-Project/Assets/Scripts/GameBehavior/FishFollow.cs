@@ -35,6 +35,7 @@ public class FishFollow : MonoBehaviour
             if (distanceToTarget < followDistance)
             {
                 rb.position = Vector3.MoveTowards(rb.position, playerRb.position, speed * Time.deltaTime);
+                transform.LookAt(playerRb.position);
             }
         }
        

@@ -207,24 +207,24 @@ public class Player : MonoBehaviour
         if (showTrashText)
         {
             GUI.Label(new Rect(Screen.width / 2 - 75,
-                 Screen.height / 2, 200, 100), "Press R to pick up trash!");
+                 Screen.height / 2, 200, 100), "Tryk R for at samle affald op!");
         }
 
         if (showRepairText)
         {
             GUI.Label(new Rect(Screen.width / 2 - 75,
-                 Screen.height / 2, 200, 100), "Press R to repair coral!");
+                 Screen.height / 2, 200, 100), "Tryk R to for at reparere korallen!");
         }
 
         if (showUnstuckText)
         {
             GUI.Label(new Rect(Screen.width / 2 - 75,
-                 Screen.height / 2, 200, 100), "Press R to help Bobbles!");
+                 Screen.height / 2, 200, 100), "Tryk R for at redde Bobbles!");
         }
         if (showInformText)
         {
             GUI.Label(new Rect(Screen.width / 2 - 75,
-                 Screen.height / 2, 200, 100), "Press R to inform others!");
+                 Screen.height / 2, 200, 100), "Tryk R for at informere andre!");
         }
     }
 }
