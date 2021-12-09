@@ -54,12 +54,30 @@ public class QuestObjectives : MonoBehaviour
     /// </summary>
     void CleanUpObjective()
     {
-        if (objectiveType == objectiveType.cleanUp)
+
+        switch (objectiveType)
         {
-            resource.SetObjectiveText("Pollution Gathering");
-            currentAmount = GameObject.Find("Player").GetComponent<Player>().trashPickedUp;
-            requiredAmount = resource.trashInScene;
-        }
+            case objectiveType.cleanUp:
+                resource.SetObjectiveText("Pollution Gathering");
+                currentAmount = GameObject.Find("Player").GetComponent<Player>().trashPickedUp;
+                requiredAmount = resource.trashInScene;
+                break;
+            case objectiveType.escort:
+                FishFollow boobles = GameObject.FindGameObjectWithTag("SafeFish").GetComponent<FishFollow>();
+                resource.SetObjectiveText("Bobbles is stuck in trash, find and safe him!");
+                requiredAmount = 1;
+                if (boobles.safeFromDanger == false)
+                {
+                    currentAmount = 0;
+                }
+                else currentAmount = 1;
+                break;
+            case objectiveType.educate:
+                break;
+            case objectiveType.repair:
+                break;
+            
+        } 
     }
 }
 
