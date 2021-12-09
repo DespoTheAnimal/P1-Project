@@ -33,6 +33,10 @@ public class Player : MonoBehaviour
     bool showRepairText = false;
     public int coralsCleansed;
 
+    bool showUnstuckText = false;
+
+    bool showInformText = false;
+
     //Getting a reference to the current scene
     Scene activeScene;
     //The build index of the current scene
@@ -103,11 +107,11 @@ public class Player : MonoBehaviour
     }
 
     /// <summary>
-    /// Loads the current scene again
+    /// Go til gameover scene
     /// </summary>
     void Restartlvl()
     {
-        SceneManager.LoadScene(sceneNumber);
+        SceneManager.LoadScene("GameOver");
     }
 
     /// <summary>
@@ -147,9 +151,7 @@ public class Player : MonoBehaviour
                 {
                     TrashPickUp();
                 }
-            }
-
-            else if (Hit.transform.gameObject.CompareTag("Coral"))
+            }  else if (Hit.transform.gameObject.CompareTag("Coral"))
             {
                 showRepairText = true;
 
@@ -157,13 +159,32 @@ public class Player : MonoBehaviour
                 {
                     CleanseCorals();
                 }
+            } else if (Hit.transform.gameObject.CompareTag("SafeFish"))
+            {
+                if (Hit.transform.GetComponent<FishFollow>().stuckInTrash == true)
+                {
+                    showUnstuckText = true;
+                    if (Input.GetKeyDown(KeyCode.R))
+                    {
+                        Hit.transform.GetComponent<FishFollow>().stuckInTrash = false;
+                    }
+                }   
             }
+            else if (Hit.transform.gameObject.CompareTag("Inform"))
+            {
+                showInformText = true;
+                if (Input.GetKeyDown(KeyCode.R))
+                {
 
+                }
+            }
         }
         else
         {
             showTrashText = false;
             showRepairText = false;
+            showUnstuckText = false;
+            showInformText = false;
         }
 
     }
@@ -186,6 +207,12 @@ public class Player : MonoBehaviour
         {
             GUI.Label(new Rect(Screen.width / 2 - 75,
                  Screen.height / 2, 200, 100), "Press R to repair coral!");
+        }
+
+        if (showUnstuckText)
+        {
+            GUI.Label(new Rect(Screen.width / 2 - 75,
+                 Screen.height / 2, 200, 100), "Press R to help Bobbles!");
         }
     }
 }

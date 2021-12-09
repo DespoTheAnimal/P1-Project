@@ -61,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5414741062698857052, guid: 5142f6971dda3be429fcf0eea650432d, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: friendlyFish
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5142f6971dda3be429fcf0eea650432d, type: 3}
