@@ -80,6 +80,7 @@ public class QuestObjectives : MonoBehaviour
                 } else currentAmount = 1;
                 break;
             case objectiveType.educate:
+                //resource.SetObjectiveText();
                 break;
             case objectiveType.repair:
                 resource.SetObjectiveText("Red korallerne!");
