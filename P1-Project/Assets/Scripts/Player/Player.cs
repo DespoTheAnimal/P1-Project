@@ -36,6 +36,7 @@ public class Player : MonoBehaviour
     bool showUnstuckText = false;
 
     bool showInformText = false;
+    public int fishInformed;
 
     //Getting a reference to the current scene
     Scene activeScene;
@@ -177,7 +178,7 @@ public class Player : MonoBehaviour
                         showInformText = true;
                     if (Input.GetKeyDown(KeyCode.R))
                     {
-                        Hit.transform.GetComponent<InformFish>().beingInformed = true;
+                        Inform();
                     }
                 }
             }
@@ -192,6 +193,11 @@ public class Player : MonoBehaviour
 
     }
 
+    private void Inform()
+    {
+        fishInformed++;
+        Hit.transform.GetComponent<InformFish>().beingInformed = true;
+    }
 
     /// <summary>
     /// Shows text on screen

@@ -71,16 +71,16 @@ public class QuestObjectives : MonoBehaviour
                 {
                     resource.SetObjectiveText("Get Bobbles to your homebase to keep him safe");
                 }
-                
-               
-                requiredAmount = 1;
+                 requiredAmount = 1;
                 if (boobles.safeFromDanger == false)
                 {
                     currentAmount = 0;
                 } else currentAmount = 1;
                 break;
             case objectiveType.educate:
-                //resource.SetObjectiveText();
+                resource.SetObjectiveText("Informer andre om konsekvenser ved affald ");
+                currentAmount = GameObject.Find("Player").GetComponent<Player>().fishInformed;
+                requiredAmount = resource.objectList[2];
                 break;
             case objectiveType.repair:
                 resource.SetObjectiveText("Red korallerne!");
