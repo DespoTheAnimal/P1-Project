@@ -35,6 +35,8 @@ public class Player : MonoBehaviour
 
     bool showUnstuckText = false;
 
+    bool showInformText = false;
+
     //Getting a reference to the current scene
     Scene activeScene;
     //The build index of the current scene
@@ -168,12 +170,24 @@ public class Player : MonoBehaviour
                     }
                 }   
             }
+            else if (Hit.transform.gameObject.CompareTag("Inform"))
+            {
+                if(Hit.transform.GetComponent<InformFish>().beingInformed == false)
+                {
+                        showInformText = true;
+                    if (Input.GetKeyDown(KeyCode.R))
+                    {
+                        Hit.transform.GetComponent<InformFish>().beingInformed = true;
+                    }
+                }
+            }
         }
         else
         {
             showTrashText = false;
             showRepairText = false;
             showUnstuckText = false;
+            showInformText = false;
         }
 
     }
@@ -202,6 +216,11 @@ public class Player : MonoBehaviour
         {
             GUI.Label(new Rect(Screen.width / 2 - 75,
                  Screen.height / 2, 200, 100), "Press R to help Bobbles!");
+        }
+        if (showInformText)
+        {
+            GUI.Label(new Rect(Screen.width / 2 - 75,
+                 Screen.height / 2, 200, 100), "Press R to inform others!");
         }
     }
 }
