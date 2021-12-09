@@ -2765,7 +2765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resource: {fileID: 1650862560}
-  objectiveType: 1
+  objectiveType: 3
   requiredAmount: 0
   currentAmount: 0
 --- !u!4 &243005631
@@ -8682,6 +8682,7 @@ MonoBehaviour:
   resource: {fileID: 1650862560}
   trashPickedUp: 0
   coralsCleansed: 0
+  fishInformed: 0
   inSafeZone: 0
 --- !u!114 &921633283
 MonoBehaviour:
