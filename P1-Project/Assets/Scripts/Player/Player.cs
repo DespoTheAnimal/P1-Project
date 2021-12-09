@@ -56,7 +56,6 @@ public class Player : MonoBehaviour
 
         activeScene = SceneManager.GetActiveScene();
         sceneNumber = activeScene.buildIndex;
-        resource.SetTrashCollectedText(trashPickedUp);
         maxHealth = 100;
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
@@ -122,7 +121,6 @@ public class Player : MonoBehaviour
     {
         trashPickedUp++;
         Destroy(Hit.transform.gameObject);
-        resource.SetTrashCollectedText(trashPickedUp);
     }
 
     private void CleanseCorals()

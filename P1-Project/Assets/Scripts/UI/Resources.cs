@@ -15,7 +15,8 @@ public class Resources : MonoBehaviour
     public TextMeshProUGUI ObjectiveText;
 
     //The amount of trash in the scene
-    public int[] objectList;
+    public readonly int[] objectList = new int[3];
+  
 
     List<GameObject> trashList = new List<GameObject>();
     List<GameObject> coralList = new List<GameObject>();
@@ -37,12 +38,12 @@ public class Resources : MonoBehaviour
     }
 
     /// <summary>
-    /// Sets the amount of trash collected to the current amount
+    /// Sets the counter amount
     /// </summary>
-    /// <param name="trash"> the amount of trash collected</param>
-    public void SetTrashCollectedText(int trash)
+    /// <param name="trash"> the text for the text counter</param>
+     public void SetCounterText(string text)
     {
-         textCounter.SetText("Dumpsites cleaned: " + trash.ToString() + "/" + objectList[0]);
+        textCounter.SetText(text);
 
     }
     /// <summary>

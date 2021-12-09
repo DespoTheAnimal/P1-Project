@@ -61,6 +61,8 @@ public class QuestObjectives : MonoBehaviour
                 resource.SetObjectiveText("Pollution Gathering");
                 currentAmount = GameObject.Find("Player").GetComponent<Player>().trashPickedUp;
                 requiredAmount = resource.objectList[0];
+                resource.SetCounterText("Dumpsites cleaned: " + currentAmount.ToString() + "/" + requiredAmount);
+
                 break;
             case objectiveType.escort:
                 FishFollow boobles = GameObject.FindGameObjectWithTag("SafeFish").GetComponent<FishFollow>();
@@ -81,11 +83,14 @@ public class QuestObjectives : MonoBehaviour
                 resource.SetObjectiveText("Informer andre om konsekvenser ved affald ");
                 currentAmount = GameObject.Find("Player").GetComponent<Player>().fishInformed;
                 requiredAmount = resource.objectList[2];
+                resource.SetCounterText("inform: " + currentAmount.ToString() + "/" + requiredAmount);
                 break;
             case objectiveType.repair:
                 resource.SetObjectiveText("Red korallerne!");
                 currentAmount = GameObject.Find("Player").GetComponent<Player>().coralsCleansed;
                 requiredAmount = resource.objectList[1];
+                resource.SetCounterText("Corals cleansed: " + currentAmount.ToString() + "/" + requiredAmount);
+                
                 break;
             
         } 
