@@ -15,6 +15,7 @@ TagManager:
   - CleanCoral
   - HomeBase
   - SafeFish
+  - Inform
   layers:
   - Default
   - TransparentFX
