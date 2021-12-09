@@ -45,5 +45,9 @@ public class HomeBaseBehavior : MonoBehaviour
                 SceneManager.LoadScene(curSceneIndex++);
             }
         }
+        if (other.CompareTag("SafeFish"))
+        {
+            other.GetComponent<FishFollow>().safeFromDanger = true;
+        }
     }
 }

@@ -8,7 +8,7 @@ public class FishFollow : MonoBehaviour
     Rigidbody rb;
     Rigidbody playerRb;
 
-    bool safeFromDanger = false;
+    public bool safeFromDanger = false;
     //the speed of the gameobject
     float speed = 7f;
 
@@ -37,14 +37,5 @@ public class FishFollow : MonoBehaviour
             }
         }
        
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("HomeBase"))
-        {
-            safeFromDanger = true;
-
-        }
     }
 }
