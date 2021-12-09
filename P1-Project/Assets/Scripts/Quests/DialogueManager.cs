@@ -13,7 +13,8 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<string> sentences;
 
-    private float waitTime = 10f;
+    [SerializeField]
+    private float waitTime;
 
 
     void Awake()

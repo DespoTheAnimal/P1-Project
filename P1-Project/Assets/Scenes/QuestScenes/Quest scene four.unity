@@ -1911,6 +1911,7 @@ MonoBehaviour:
   titleText: {fileID: 806923952}
   dialogueText: {fileID: 427581001}
   animator: {fileID: 870815400}
+  waitTime: 10
 --- !u!4 &126611305
 Transform:
   m_ObjectHideFlags: 0
