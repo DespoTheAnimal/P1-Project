@@ -15,20 +15,17 @@ public class Resources : MonoBehaviour
     public TextMeshProUGUI ObjectiveText;
 
     //The amount of trash in the scene
-    public int[] objectList = new int[2];
-    /*{
-        get { return trashList.Count; }
-
-    }*/
-
+    public int[] objectList = new int[3];
 
     List<GameObject> trashList = new List<GameObject>();
     List<GameObject> coralList = new List<GameObject>();
+    List<GameObject> informList = new List<GameObject>();
 
     private void Awake()
     {
         trashList.AddRange(GameObject.FindGameObjectsWithTag("Trash"));
         coralList.AddRange(GameObject.FindGameObjectsWithTag("Coral"));
+        informList.AddRange(GameObject.FindGameObjectsWithTag("Inform"));
         AddObjectsToList();
     }
 
@@ -36,6 +33,7 @@ public class Resources : MonoBehaviour
     {
         objectList[0] = trashList.Count;
         objectList[1] = coralList.Count;
+        objectList[2] = informList.Count;
     }
 
     /// <summary>
