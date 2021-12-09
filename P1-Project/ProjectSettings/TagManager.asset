@@ -13,6 +13,8 @@ TagManager:
   - Chemicals
   - Coral
   - CleanCoral
+  - HomeBase
+  - SafeFish
   layers:
   - Default
   - TransparentFX
