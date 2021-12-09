@@ -65,8 +65,12 @@ public class QuestObjectives : MonoBehaviour
             case objectiveType.escort:
                 FishFollow boobles = GameObject.FindGameObjectWithTag("SafeFish").GetComponent<FishFollow>();
                 resource.SetObjectiveText("Bobbles is stuck in trash, find and safe him!");
-                currentAmount = 0;
-                
+                requiredAmount = 1;
+                if (boobles.safeFromDanger == false)
+                {
+                    currentAmount = 0;
+                }
+                else currentAmount = 1;
                 break;
             case objectiveType.educate:
                 break;
