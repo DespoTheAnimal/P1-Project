@@ -21,6 +21,10 @@ public class EnemyMovement : MonoBehaviour
 
     //How much the shark hurts the player
     int dmg = 2;
+    [SerializeField]
+    GameObject dangerSign;
+
+
 
     void Start()
     {
@@ -28,6 +32,7 @@ public class EnemyMovement : MonoBehaviour
         rbTarget = target.GetComponent<Rigidbody>();
         player = target.GetComponent<Player>();
         rb = GetComponent<Rigidbody>();
+        
 
     }
 
@@ -72,6 +77,7 @@ public class EnemyMovement : MonoBehaviour
         float FollowDistance = 40f;
         if (distanceToTarget < FollowDistance)
         {
+            dangerSign.SetActive(true);
             MoveToPlayer();
         //if the shark gets close to an object it changes direction
         } else if (Physics.Raycast(rb.position, transform.forward, out Hit, 2f)) {
@@ -80,6 +86,7 @@ public class EnemyMovement : MonoBehaviour
         } 
         else {
             DefaultMove();
+            dangerSign.SetActive(false);
         }
 
     }

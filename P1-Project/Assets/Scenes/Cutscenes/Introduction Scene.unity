@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589245, b: 0.2978263, a: 1}
+  m_IndirectSpecularColor: {r: 0.172768, g: 0.21589167, b: 0.29782546, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2004,6 +2004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4bcd7741a91b644faf86e502a596c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dangerSign: {fileID: 0}
 --- !u!1001 &134429277
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2681,7 +2682,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &217601296
 Transform:
   m_ObjectHideFlags: 0
@@ -4498,9 +4499,17 @@ MonoBehaviour:
   dialogue:
     title: Skjoldbert
     sentences:
-    - Hej
-    - You can help by cleaning up 10 dump sites.
-    - When you are done, come find me again in our homebase.
+    - Hej, mit navn Skjoldbert
+    - "Jeg kan se du er ny, s\xE5 lad mig vise dig lidt rundt"
+    - "Der er ikke desv\xE6rre ikke kun gode ting i havet"
+    - Her ligger en bunke affald
+    - "Affald er d\xE5rligt for os som lever i vandet"
+    - "Flere af mine venner er blevet syge p\xE5 grund af affald i havet"
+    - "Jeg har pr\xF8vet at rydde op, men jeg kan desv\xE6rre ikke g\xF8re det alene"
+    - "Kunne du t\xE6nke dig at hj\xE6lpe mig?"
+    - "N\xE5r du finder affaldet skal du trykke R for at fjerne det"
+    - "N\xE5r du har fjernet affaldet - s\xE5 m\xF8d mig tilbage i hulen"
+    - "Men pas p\xE5 hajerne! Held og lykke"
 --- !u!4 &436236259
 Transform:
   m_ObjectHideFlags: 0
@@ -5239,7 +5248,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &493460905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5247,7 +5256,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 493460904}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a0e23c62dc3bc84d9aafbde2fe807a6, type: 3}
   m_Name: 
@@ -6618,17 +6627,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2779160865492613587, guid: 1eb1ea7198d6e4eb2a8232b8d7822f85, type: 3}
   m_PrefabInstance: {fileID: 699665521}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &699665523 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2779160864975809183, guid: 1eb1ea7198d6e4eb2a8232b8d7822f85, type: 3}
-  m_PrefabInstance: {fileID: 699665521}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d86457f31b0c76b4ca2c1cf79265dddf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &699665524 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2779160865492613584, guid: 1eb1ea7198d6e4eb2a8232b8d7822f85, type: 3}
@@ -6772,13 +6770,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 722298488}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e074f4e9c5d544168f7da53e8fc7385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cleanCoral: {fileID: 0}
-  healthBar: {fileID: 699665523}
+  healthBar: {fileID: 0}
   resource: {fileID: 699665524}
   trashPickedUp: 0
   coralsCleansed: 0
@@ -6790,7 +6788,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 722298488}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f181c21349c604e7788becbb79756463, type: 3}
   m_Name: 
@@ -8930,6 +8928,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4bcd7741a91b644faf86e502a596c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dangerSign: {fileID: 0}
 --- !u!1001 &1003298043
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9101,7 +9100,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1022921978
 Transform:
   m_ObjectHideFlags: 0
@@ -10313,7 +10312,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1117330455}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 128f8d3a2989b483caf5d8b0d078dfa9, type: 3}
   m_Name: 
@@ -15184,7 +15183,7 @@ RectTransform:
   - {fileID: 121019171}
   - {fileID: 2083677028}
   m_Father: {fileID: 699665522}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -15766,7 +15765,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1786528733}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!4 &1786528737
 Transform:
   m_ObjectHideFlags: 0
@@ -15997,7 +15996,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &1814378227
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -16040,6 +16039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4bcd7741a91b644faf86e502a596c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dangerSign: {fileID: 0}
 --- !u!4 &1814378230
 Transform:
   m_ObjectHideFlags: 0
