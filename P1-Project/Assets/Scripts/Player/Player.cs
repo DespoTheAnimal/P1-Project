@@ -103,11 +103,11 @@ public class Player : MonoBehaviour
     }
 
     /// <summary>
-    /// Loads the current scene again
+    /// Go til gameover scene
     /// </summary>
     void Restartlvl()
     {
-        SceneManager.LoadScene(sceneNumber);
+        SceneManager.LoadScene("GameOver");
     }
 
     /// <summary>
