@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// inspiration from https://answers.unity.com/questions/1380771/random-spawn-gameobject-in-area.html
+
 public class FishAI : MonoBehaviour
 {
 
@@ -10,7 +12,6 @@ public class FishAI : MonoBehaviour
     public float speed = 10f;
 
     RaycastHit Hit;
-
 
     // Start is called before the first frame update
     void Start()

@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 
 {
+    [SerializeField]
+    GameObject cleanCoral;
    //Health properties for the player
    [SerializeField]
     HealthBar healthBar;
@@ -28,6 +30,9 @@ public class Player : MonoBehaviour
     bool showTrashText = false;
     public int trashPickedUp;
 
+    bool showRepairText = false;
+    public int coralsCleansed;
+
     //Getting a reference to the current scene
     Scene activeScene;
     //The build index of the current scene
@@ -38,7 +43,8 @@ public class Player : MonoBehaviour
 
     //true if the player's health reaches 0 else false
     bool isDead;
-    // Start is called before the first frame update
+
+
 
     void Start()
     {
@@ -114,27 +120,52 @@ public class Player : MonoBehaviour
         resource.SetTrashCollectedText(trashPickedUp);
     }
 
+    private void CleanseCorals()
+    {
+        coralsCleansed++;
+        Vector3 pos = Hit.transform.position;
+        Quaternion quaternion = Hit.transform.rotation;
+        GameObject coral = Hit.transform.gameObject;
+        Destroy(coral);
+        Instantiate(cleanCoral, pos, quaternion);
+    }
+
     /// <summary>
     /// checks if a gameobject with the tag "Trash" is close to you, and in front of you,
     /// if the r key is pressed the TrashPickedUp method runs
     /// </summary>
     void PickUp()
     {
-        float distanceToTrash = 5f;
-        if (Physics.SphereCast(rb.position, height, transform.forward, out Hit, distanceToTrash))
+        float distanceToHit = 5f;
+        if (Physics.SphereCast(rb.position, height, transform.forward, out Hit, distanceToHit))
         {
             if (Hit.transform.gameObject.CompareTag("Trash"))
-            { 
+            {
                 showTrashText = true;
-            
+
                 if (Input.GetKeyDown(KeyCode.R))
                 {
                     TrashPickUp();
                 }
             }
 
+            else if (Hit.transform.gameObject.CompareTag("Coral"))
+            {
+                showRepairText = true;
+
+                if (Input.GetKeyDown(KeyCode.R))
+                {
+                    CleanseCorals();
+                }
+            }
+
         }
-        else showTrashText = false;
+        else
+        {
+            showTrashText = false;
+            showRepairText = false;
+        }
+
     }
 
 
@@ -149,6 +180,12 @@ public class Player : MonoBehaviour
         {
             GUI.Label(new Rect(Screen.width / 2 - 75,
                  Screen.height / 2, 200, 100), "Press R to pick up trash!");
+        }
+
+        if (showRepairText)
+        {
+            GUI.Label(new Rect(Screen.width / 2 - 75,
+                 Screen.height / 2, 200, 100), "Press R to repair coral!");
         }
     }
 }

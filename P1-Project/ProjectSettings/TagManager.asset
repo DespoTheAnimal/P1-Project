@@ -11,6 +11,8 @@ TagManager:
   - friendlyFish
   - FxTemporaire
   - Chemicals
+  - Coral
+  - CleanCoral
   layers:
   - Default
   - TransparentFX
