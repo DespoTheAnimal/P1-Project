@@ -172,10 +172,13 @@ public class Player : MonoBehaviour
             }
             else if (Hit.transform.gameObject.CompareTag("Inform"))
             {
-                showInformText = true;
-                if (Input.GetKeyDown(KeyCode.R))
+                if(Hit.transform.GetComponent<InformFish>().beingInformed == false)
                 {
-
+                        showInformText = true;
+                    if (Input.GetKeyDown(KeyCode.R))
+                    {
+                        Hit.transform.GetComponent<InformFish>().beingInformed = true;
+                    }
                 }
             }
         }
@@ -213,6 +216,11 @@ public class Player : MonoBehaviour
         {
             GUI.Label(new Rect(Screen.width / 2 - 75,
                  Screen.height / 2, 200, 100), "Press R to help Bobbles!");
+        }
+        if (showInformText)
+        {
+            GUI.Label(new Rect(Screen.width / 2 - 75,
+                 Screen.height / 2, 200, 100), "Press R to inform others!");
         }
     }
 }
