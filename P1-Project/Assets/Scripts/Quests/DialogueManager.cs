@@ -13,7 +13,7 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<string> sentences;
 
-    private float waitTime = 5f;
+    private float waitTime = 10f;
 
 
     void Awake()

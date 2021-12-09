@@ -127,7 +127,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKey(sprint)) //&& curStamina > maxStamina/2)
         {
-            SetStamina(maxStamina-1);
+            SetStamina(maxStamina/2);
         }
         //Go upwards
         if (Input.GetKey(upwards))
