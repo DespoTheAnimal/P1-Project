@@ -35,6 +35,8 @@ public class Player : MonoBehaviour
 
     bool showUnstuckText = false;
 
+    bool showInformText = false;
+
     //Getting a reference to the current scene
     Scene activeScene;
     //The build index of the current scene
@@ -168,12 +170,21 @@ public class Player : MonoBehaviour
                     }
                 }   
             }
+            else if (Hit.transform.gameObject.CompareTag("Inform"))
+            {
+                showInformText = true;
+                if (Input.GetKeyDown(KeyCode.R))
+                {
+
+                }
+            }
         }
         else
         {
             showTrashText = false;
             showRepairText = false;
             showUnstuckText = false;
+            showInformText = false;
         }
 
     }
