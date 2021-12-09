@@ -11,8 +11,6 @@ public class InformFish : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(beingInformed);
-        Debug.Log(time);
         BeginDialog();
     }
 

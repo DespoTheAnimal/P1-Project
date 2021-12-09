@@ -15,7 +15,7 @@ public class Resources : MonoBehaviour
     public TextMeshProUGUI ObjectiveText;
 
     //The amount of trash in the scene
-    public int[] objectList = new int[3];
+    public int[] objectList;
 
     List<GameObject> trashList = new List<GameObject>();
     List<GameObject> coralList = new List<GameObject>();
