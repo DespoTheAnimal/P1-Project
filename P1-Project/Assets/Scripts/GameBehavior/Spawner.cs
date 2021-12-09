@@ -64,7 +64,7 @@ public class Spawner : MonoBehaviour
     {
         min = new Vector3(165, 20, 230);
 
-        max = new Vector3(168, 90, 232);
+        max = new Vector3(537, 100, 508);
     }
 
     /// <summary>
