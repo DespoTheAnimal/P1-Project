@@ -35,7 +35,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cutscenes/4th Achievement.unity
     guid: 73b0ea57e917a4d41a38b685e3876257
-  - enabled: 1
-    path: Assets/Scenes/GameOver.unity
-    guid: f3bf66716f7f2470c93743ed32b612a4
   m_configObjects: {}

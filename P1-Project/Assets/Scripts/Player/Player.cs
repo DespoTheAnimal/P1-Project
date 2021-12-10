@@ -111,7 +111,7 @@ public class Player : MonoBehaviour
     /// </summary>
     void Restartlvl()
     {
-        SceneManager.LoadScene("GameOver");
+        SceneManager.LoadScene(sceneNumber);
     }
 
     /// <summary>

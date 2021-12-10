@@ -43,7 +43,7 @@ public class QuestObjectives : MonoBehaviour
         {
             resource.ObjectiveText.enabled = false;
             resource.textCounter.enabled = false;
-            resource.SetIsReachedText("Sw?m tilbage til din hjemmebase for at klare missionen!");
+            resource.SetIsReachedText("Tag tilbage til din hjemmebase for at klare missionen!");
 
         }
     }
@@ -71,7 +71,7 @@ public class QuestObjectives : MonoBehaviour
                     resource.SetObjectiveText("Bobbles sider fast i affald, red ham!");
                 } else
                 {
-                    resource.SetObjectiveText("F?lg Boobles til din hjemmebase s? han er i sikkerhed");
+                    resource.SetObjectiveText("tag Boobles til din hjemmebase");
                 }
                  requiredAmount = 1;
                 if (boobles.safeFromDanger == false)
