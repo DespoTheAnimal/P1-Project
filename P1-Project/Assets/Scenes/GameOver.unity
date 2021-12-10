@@ -159,8 +159,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -31.066, y: 16.939}
-  m_SizeDelta: {x: 313.84, y: 69.785}
+  m_AnchoredPosition: {x: -31.066, y: -17.855}
+  m_SizeDelta: {x: 313.84, y: 76.9366}
   m_Pivot: {x: 0.5, y: 0.7679235}
 --- !u!114 &137673976
 MonoBehaviour:
@@ -486,8 +486,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -17.417297, y: 132.33}
-  m_SizeDelta: {x: -308.1481, y: -327.09}
+  m_AnchoredPosition: {x: -17.417297, y: 123.03}
+  m_SizeDelta: {x: -308.1481, y: -308.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1143890788
 MonoBehaviour:
@@ -511,7 +511,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d72cd7e4118bd4ca08f482c56e365979, type: 3}
-    m_FontSize: 35
+    m_FontSize: 37
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
@@ -589,8 +589,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 13a0425a43eeb475887e2efcb19fe4a4, type: 3}
-    m_FontSize: 28
+    m_Font: {fileID: 12800000, guid: 70202f8e065b349b8ae5c6d104e58e30, type: 3}
+    m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -601,7 +601,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Menu
+  m_Text: MeNu
 --- !u!222 &1174122630
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -800,8 +800,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -31.066, y: 66.255}
-  m_SizeDelta: {x: 313.84, y: 66.24}
+  m_AnchoredPosition: {x: -31.066, y: 40.39134}
+  m_SizeDelta: {x: 313.84, y: 80.7817}
   m_Pivot: {x: 0.5, y: 0.49999994}
 --- !u!114 &1656748639
 MonoBehaviour:
@@ -1071,8 +1071,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 13a0425a43eeb475887e2efcb19fe4a4, type: 3}
-    m_FontSize: 28
+    m_Font: {fileID: 12800000, guid: 70202f8e065b349b8ae5c6d104e58e30, type: 3}
+    m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1083,7 +1083,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Restart
+  m_Text: ReStaRt
 --- !u!222 &1909350426
 CanvasRenderer:
   m_ObjectHideFlags: 0
