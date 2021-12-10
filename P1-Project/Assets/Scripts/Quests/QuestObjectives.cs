@@ -83,7 +83,7 @@ public class QuestObjectives : MonoBehaviour
                 resource.SetObjectiveText("Informer andre om konsekvenser ved affald ");
                 currentAmount = GameObject.Find("Player").GetComponent<Player>().fishInformed;
                 requiredAmount = resource.objectList[2];
-                resource.SetCounterText("inform: " + currentAmount.ToString() + "/" + requiredAmount);
+                resource.SetCounterText("Informer: " + currentAmount.ToString() + "/" + requiredAmount);
                 break;
             case objectiveType.repair:
                 resource.SetObjectiveText("Red korallerne!");
