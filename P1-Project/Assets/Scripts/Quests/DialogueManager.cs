@@ -60,14 +60,6 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("IsOpen", false);
     }
 
-    private void Update()
-    {
-        /*if (Input.GetKeyDown("space"))
-        {
-            DisplayNextSentence();
-        }*/
-    }
-
     private IEnumerator WaitBeforeShow(float time)
     {     
         while (enabled)

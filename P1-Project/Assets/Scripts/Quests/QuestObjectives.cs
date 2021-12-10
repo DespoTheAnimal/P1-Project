@@ -43,7 +43,7 @@ public class QuestObjectives : MonoBehaviour
         {
             resource.ObjectiveText.enabled = false;
             resource.textCounter.enabled = false;
-            resource.SetIsReachedText("Go back to homebase!");
+            resource.SetIsReachedText("Sw?m tilbage til din hjemmebase for at klare missionen!");
 
         }
     }
@@ -58,20 +58,20 @@ public class QuestObjectives : MonoBehaviour
         switch (objectiveType)
         {
             case objectiveType.cleanUp:
-                resource.SetObjectiveText("Pollution Gathering");
+                resource.SetObjectiveText("Find skrald");
                 currentAmount = GameObject.Find("Player").GetComponent<Player>().trashPickedUp;
                 requiredAmount = resource.objectList[0];
-                resource.SetCounterText("Dumpsites cleaned: " + currentAmount.ToString() + "/" + requiredAmount);
+                resource.SetCounterText("Forurening indsamlet: " + currentAmount.ToString() + "/" + requiredAmount);
 
                 break;
             case objectiveType.escort:
                 FishFollow boobles = GameObject.FindGameObjectWithTag("SafeFish").GetComponent<FishFollow>();
                 if (boobles.stuckInTrash == true)
                 {
-                    resource.SetObjectiveText("Bobbles is stuck in trash, safe him!");
+                    resource.SetObjectiveText("Bobbles sider fast i affald, red ham!");
                 } else
                 {
-                    resource.SetObjectiveText("Get Bobbles to your homebase to keep him safe");
+                    resource.SetObjectiveText("F?lg Boobles til din hjemmebase s? han er i sikkerhed");
                 }
                  requiredAmount = 1;
                 if (boobles.safeFromDanger == false)
@@ -89,7 +89,7 @@ public class QuestObjectives : MonoBehaviour
                 resource.SetObjectiveText("Red korallerne!");
                 currentAmount = GameObject.Find("Player").GetComponent<Player>().coralsCleansed;
                 requiredAmount = resource.objectList[1];
-                resource.SetCounterText("Corals cleansed: " + currentAmount.ToString() + "/" + requiredAmount);
+                resource.SetCounterText("Koraller repareret: " + currentAmount.ToString() + "/" + requiredAmount);
                 
                 break;
             
