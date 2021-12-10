@@ -20,7 +20,7 @@ public class EnemyMovement : MonoBehaviour
     Rigidbody rb;
 
     //How much the shark hurts the player
-    int dmg = 2;
+    int dmg = 10;
     [SerializeField]
     GameObject dangerSign;
 

@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
 
         activeScene = SceneManager.GetActiveScene();
         sceneNumber = activeScene.buildIndex;
-        maxHealth = 100;
+        maxHealth = 500;
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
         rb = GetComponent<Rigidbody>();

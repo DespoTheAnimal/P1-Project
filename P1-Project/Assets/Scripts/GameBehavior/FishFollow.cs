@@ -11,7 +11,7 @@ public class FishFollow : MonoBehaviour
     public bool stuckInTrash = true;
     public bool safeFromDanger = false;
     //the speed of the gameobject
-    float speed = 7f;
+    float speed = 20f;
 
     void Start()
     {
@@ -31,7 +31,7 @@ public class FishFollow : MonoBehaviour
         if (safeFromDanger == false && stuckInTrash == false)
         {
             float distanceToTarget = Vector3.Distance(rb.position, playerRb.position);
-            float followDistance = 20f;
+            float followDistance = 35f;
             if (distanceToTarget < followDistance)
             {
                 rb.position = Vector3.MoveTowards(rb.position, playerRb.position, speed * Time.deltaTime);
