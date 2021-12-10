@@ -11,7 +11,8 @@ public class EnemyMovement : MonoBehaviour
     Player player;
 
     //The speed of the enemy
-    readonly float speed = 14f;
+    [SerializeField]
+    float speed = 14f;
 
     //Variable for containing the RaycastHit information
     RaycastHit Hit;
@@ -20,7 +21,7 @@ public class EnemyMovement : MonoBehaviour
     Rigidbody rb;
 
     //How much the shark hurts the player
-    int dmg = 2;
+    int dmg = 10;
     [SerializeField]
     GameObject dangerSign;
 
@@ -74,7 +75,7 @@ public class EnemyMovement : MonoBehaviour
     {
         //if the shark is close to the player it moves towards it
         float distanceToTarget = Vector3.Distance(rb.position, rbTarget.position);
-        float FollowDistance = 40f;
+        float FollowDistance = 80f;
         if (distanceToTarget < FollowDistance)
         {
             dangerSign.SetActive(true);

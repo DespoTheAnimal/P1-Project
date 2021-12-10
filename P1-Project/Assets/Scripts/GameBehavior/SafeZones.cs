@@ -5,7 +5,7 @@ using UnityEngine;
 public class SafeZones : MonoBehaviour
 {
     //The amount of health of the safezone
-    int giveHealth = 1;
+    int giveHealth = 10;
 
     /// <summary>
     /// Checks for colliders entering the trigger
