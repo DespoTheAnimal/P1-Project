@@ -6,8 +6,35 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: d1c3109bdb54ad54c8a2b2838528e640
+    path: Assets/Scenes/Menu.unity
+    guid: 62d819e86db354535b46ced2f69fc43a
+  - enabled: 1
+    path: Assets/Scenes/Cutscenes/Intro Scene.unity
+    guid: 7020dc9370690d941bc0618feb77424a
+  - enabled: 1
+    path: Assets/Scenes/QuestScenes/Quest sceneOne.unity
+    guid: f1aa1b8aa1468405488bd5a04adb4a91
+  - enabled: 1
+    path: Assets/Scenes/Cutscenes/Camera Testing.unity
+    guid: 86267088adc791842b00e7e5bb484647
+  - enabled: 1
+    path: Assets/Scenes/QuestScenes/Quest scene two.unity
+    guid: d08810fd4eb4a406e8a588686e5db6d0
+  - enabled: 1
+    path: Assets/Scenes/Cutscenes/2nd Achievement.unity
+    guid: 27617d5ada8557944a610b10d5b5e0d0
+  - enabled: 1
+    path: Assets/Scenes/QuestScenes/Quest scene three.unity
+    guid: 24217c0b1fe7b423b85ddb9de0a504cc
+  - enabled: 1
+    path: Assets/Scenes/Cutscenes/3rd Achievement.unity
+    guid: 3a17f426f7fd90a47926c7a4fc66118d
+  - enabled: 1
+    path: Assets/Scenes/QuestScenes/Quest scene four.unity
+    guid: 8d516022f2ae34d2fa8daf06cbfe3dda
+  - enabled: 1
+    path: Assets/Scenes/Cutscenes/4th Achievement.unity
+    guid: 73b0ea57e917a4d41a38b685e3876257
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: f3bf66716f7f2470c93743ed32b612a4
