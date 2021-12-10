@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276797, g: 0.21589167, b: 0.29782546, a: 1}
+  m_IndirectSpecularColor: {r: 0.172768, g: 0.21589167, b: 0.29782546, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4501,7 +4501,7 @@ MonoBehaviour:
     sentences:
     - Hej, mit navn Skjoldbert
     - "Jeg kan se du er ny, s\xE5 lad mig vise dig lidt rundt"
-    - "Der er ikke desv\xE6rre ikke kun gode ting i havet"
+    - "Der er desv\xE6rre ikke kun gode ting i havet"
     - Her ligger en bunke affald
     - "Affald er d\xE5rligt for os som lever i vandet"
     - "Flere af mine venner er blevet syge p\xE5 grund af affald i havet"
