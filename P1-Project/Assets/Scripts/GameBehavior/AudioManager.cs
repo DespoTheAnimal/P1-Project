@@ -2,6 +2,7 @@ using UnityEngine.Audio;
 using System;
 using UnityEngine;
 
+// This script was stolen from Brackeys' tutorial: "Introduction to audio in Unity" DOI: https://youtu.be/6OT43pvUyfY 
 public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;  
