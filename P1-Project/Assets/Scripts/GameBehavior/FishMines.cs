@@ -7,7 +7,7 @@ public class FishMines : MonoBehaviour
 
     Player player;
 
-    int dmg = 10;
+    int dmg = 250;
 
     void Start()
     {
