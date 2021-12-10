@@ -33,8 +33,6 @@ public class EnemyMovement : MonoBehaviour
         rbTarget = target.GetComponent<Rigidbody>();
         player = target.GetComponent<Player>();
         rb = GetComponent<Rigidbody>();
-        
-
     }
 
     // Update is called once per frame
@@ -50,7 +48,6 @@ public class EnemyMovement : MonoBehaviour
     {
         float distanceToTarget = Vector3.Distance(rb.position, rbTarget.position);
         float distance = 3f;
-
         if (player.inSafeZone == false )
         {
             rb.position = Vector3.MoveTowards(rb.position, rbTarget.position, speed * Time.deltaTime);
@@ -80,7 +77,7 @@ public class EnemyMovement : MonoBehaviour
         {
             dangerSign.SetActive(true);
             MoveToPlayer();
-        //if the shark gets close to an object it changes direction
+            //if the shark gets close to an object it changes direction
         } else if (Physics.Raycast(rb.position, transform.forward, out Hit, 2f)) {
 
             rb.transform.Rotate(new Vector3(0, Random.Range(0, 360), 0));
