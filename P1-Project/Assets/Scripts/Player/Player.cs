@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-
+        FindObjectOfType<AudioManager>().Play("UnderWater");
         activeScene = SceneManager.GetActiveScene();
         sceneNumber = activeScene.buildIndex;
         maxHealth = 500;
@@ -121,6 +121,7 @@ public class Player : MonoBehaviour
     {
         trashPickedUp++;
         Destroy(Hit.transform.gameObject);
+        FindObjectOfType<AudioManager>().Play("Trash");
     }
 
     private void CleanseCorals()
