@@ -23,6 +23,9 @@ public class Spawner : MonoBehaviour
 
     GameObject instantiateOBJ;
 
+    [SerializeField]
+    int maxSpawns;
+
 
 
     // Start is called before the first frame update
@@ -73,7 +76,7 @@ public class Spawner : MonoBehaviour
     /// <returns></returns>
     bool canInstantiate()
     {
-        if (instantiationList.Count < 1000)
+        if (instantiationList.Count < maxSpawns)
         {
             return true;
         }
