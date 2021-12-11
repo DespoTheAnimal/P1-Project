@@ -31,7 +31,7 @@ public class HomeBaseBehavior : MonoBehaviour
         {
             if (questObjective.isReached())
             {
-                SceneManager.LoadScene(curSceneIndex + 1);
+                SceneChange.LoadNextScene(curSceneIndex);
             }
         }
     }

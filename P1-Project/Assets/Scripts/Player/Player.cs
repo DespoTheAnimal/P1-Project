@@ -38,24 +38,17 @@ public class Player : MonoBehaviour
     bool showInformText = false;
     public int fishInformed;
 
-    //Getting a reference to the current scene
-    Scene activeScene;
+
     //The build index of the current scene
-    int sceneNumber;
+    int currentScene;
 
     //is true if the player is in a safezone else false
     public bool inSafeZone = false;
 
-    //true if the player's health reaches 0 else false
-    bool isDead;
-
-
-
     void Start()
     {
         FindObjectOfType<AudioManager>().Play("UnderWater");
-        activeScene = SceneManager.GetActiveScene();
-        sceneNumber = activeScene.buildIndex;
+        currentScene = SceneManager.GetActiveScene().buildIndex;
         maxHealth = 500;
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
@@ -111,7 +104,7 @@ public class Player : MonoBehaviour
     /// </summary>
     void Restartlvl()
     {
-        SceneManager.LoadScene(sceneNumber);
+        SceneChange.RestartScene(currentScene);
     }
 
     /// <summary>

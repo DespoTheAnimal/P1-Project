@@ -21,7 +21,6 @@ public class CutSceneChange : MonoBehaviour
     IEnumerator TimeBeforeSceneSwap(int waitTime)
     {
         yield return new WaitForSeconds(waitTime);
-        curSceneIndex += 1;
-        SceneManager.LoadScene(curSceneIndex);
+        SceneChange.LoadNextScene(curSceneIndex);
     }
 }
