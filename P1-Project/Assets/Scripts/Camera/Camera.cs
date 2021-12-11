@@ -16,7 +16,7 @@ public class Camera : MonoBehaviour
     public float cameraSpeed = 2;
     public float cameraExtraSpeed = 2;
     //variables for pan, tilt and distance
-    float currentPan, currentTilt = 10, currenDistance = 5;
+    float currentPan, currentTilt = 20, currenDistance = 10;
 
 
 
