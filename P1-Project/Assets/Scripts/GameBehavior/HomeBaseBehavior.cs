@@ -8,7 +8,7 @@ public class HomeBaseBehavior : MonoBehaviour
     //Reference to the objective
     [SerializeField]
     QuestObjectives questObjective;
-
+    LevelLoader levelLoader;
     //scene variables
     Scene curScene;
     int curSceneIndex;
@@ -19,6 +19,8 @@ public class HomeBaseBehavior : MonoBehaviour
         curScene = SceneManager.GetActiveScene();
         //gets the build index of the active scene
         curSceneIndex = curScene.buildIndex;
+
+        levelLoader = GameObject.Find("LevelLoader").GetComponent<LevelLoader>();
     }
     /// <summary>
     /// Checks for colliders entering trigger
@@ -31,7 +33,7 @@ public class HomeBaseBehavior : MonoBehaviour
         {
             if (questObjective.isReached())
             {
-                SceneManager.LoadScene(curSceneIndex++);
+                StartCoroutine(levelLoader.LoadLevel(curSceneIndex++);
             }
         }
     }
