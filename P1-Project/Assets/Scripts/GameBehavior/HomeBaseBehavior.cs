@@ -42,7 +42,7 @@ public class HomeBaseBehavior : MonoBehaviour
         {
             if (questObjective.isReached())
             {
-                SceneManager.LoadScene(curSceneIndex++);
+                SceneChange.LoadNextScene(curSceneIndex);
             }
         }
         if (other.CompareTag("SafeFish"))
