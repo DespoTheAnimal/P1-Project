@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//This script was copied from Soupertrooper's video about camera movement - https://youtu.be/oKBUG89i5JA
+//This script was inspired from Soupertrooper's video about camera movement - https://youtu.be/oKBUG89i5JA
 
 public class Camera : MonoBehaviour
 {

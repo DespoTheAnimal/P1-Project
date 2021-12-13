@@ -2,42 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FishFollow : MonoBehaviour
+public class FishFollow : Swim
 {
-    //references
-    Rigidbody rb;
-    Rigidbody playerRb;
-
     public bool stuckInTrash = true;
     public bool safeFromDanger = false;
-    //the speed of the gameobject
-    float speed = 20f;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        playerRb = GameObject.Find("Player").GetComponent<Rigidbody>();
+        rbTarget = GameObject.Find("Player").GetComponent<Rigidbody>();
+        speed = 20f;
     }
 
     private void Update()
     {
-        MoveToPlayer();
+        Move();
     }
     /// <summary>
     /// If the Player gameObject it close, it follows it
     /// </summary>
-    void MoveToPlayer()
+    protected override void MoveByPlayer()
     {
+
+        rb.position = Vector3.MoveTowards(rb.position, rbTarget.position, speed * Time.deltaTime);
+        transform.LookAt(rbTarget.position);
+
+    }
+
+    protected override void Move()
+    {
+
         if (safeFromDanger == false && stuckInTrash == false)
         {
-            float distanceToTarget = Vector3.Distance(rb.position, playerRb.position);
+            float distanceToTarget = Vector3.Distance(rb.position, rbTarget.position);
             float followDistance = 35f;
             if (distanceToTarget < followDistance)
             {
-                rb.position = Vector3.MoveTowards(rb.position, playerRb.position, speed * Time.deltaTime);
-                transform.LookAt(playerRb.position);
+                MoveByPlayer();
             }
         }
-       
     }
 }

@@ -18,10 +18,6 @@ public class Player : MonoBehaviour
     //reference to the rigidbody of this gameobject
     Rigidbody rb;
 
-    //Reference to the resources
-   [SerializeField]
-    Resources resource;
-
     //information for the raycast
     float height = 1f;
     RaycastHit Hit;

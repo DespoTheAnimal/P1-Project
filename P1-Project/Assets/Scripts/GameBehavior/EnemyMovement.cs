@@ -3,29 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class EnemyMovement : MonoBehaviour
+public class EnemyMovement : Swim
 {
     // References to the player
     GameObject target;
-    Rigidbody rbTarget;
     Player player;
-
-    //The speed of the enemy
-    [SerializeField]
-    float speed = 14f;
-
-    //Variable for containing the RaycastHit information
-    RaycastHit Hit;
-
-    //reference to the enemy rigidbody
-    Rigidbody rb;
 
     //How much the shark hurts the player
     int dmg = 5;
     [SerializeField]
     GameObject dangerSign;
-
-
 
     void Start()
     {
@@ -44,31 +31,19 @@ public class EnemyMovement : MonoBehaviour
     /// <summary>
     /// Changes the position towards the player position if it isn't in the safe zone
     /// </summary>
-    void MoveToPlayer()
+    protected override void MoveByPlayer()
     {
         float distanceToTarget = Vector3.Distance(rb.position, rbTarget.position);
         float distance = 3f;
-        if (player.inSafeZone == false )
-        {
-            rb.position = Vector3.MoveTowards(rb.position, rbTarget.position, speed * Time.deltaTime);
-            if (distance < distanceToTarget)
-                transform.LookAt(rbTarget.position);
-        } else
-        {
-            DefaultMove();
-        }  
+        rb.position = Vector3.MoveTowards(rb.position, rbTarget.position, speed * Time.deltaTime);
+        if (distance < distanceToTarget)
+             transform.LookAt(rbTarget.position);
     }
 
     /// <summary>
-    /// Moves forewards
+    /// Moves forwards
     /// </summary>
-    void DefaultMove()
-    {
-        rb.MovePosition(rb.position + transform.forward * Time.deltaTime * speed);
-    }
-
-
-    void Move()
+    protected override void Move()
     {
         //if the shark is close to the player it moves towards it
         float distanceToTarget = Vector3.Distance(rb.position, rbTarget.position);
@@ -76,17 +51,21 @@ public class EnemyMovement : MonoBehaviour
         if (distanceToTarget < FollowDistance)
         {
             dangerSign.SetActive(true);
-            MoveToPlayer();
-            //if the shark gets close to an object it changes direction
-        } else if (Physics.Raycast(rb.position, transform.forward, out Hit, 2f)) {
+            if (player.inSafeZone == false)
+            {
+                MoveByPlayer();
+            }
+            else DefaultMove();
 
-            rb.transform.Rotate(new Vector3(0, Random.Range(0, 360), 0));
+            //if the shark gets close to an object it changes direction
+        } else if (CastRay(2f)) {
+
+            RotateDirection();
         } 
         else {
             DefaultMove();
             dangerSign.SetActive(false);
         }
-
     }
 
     //if the enemy touches the player it deals damage
