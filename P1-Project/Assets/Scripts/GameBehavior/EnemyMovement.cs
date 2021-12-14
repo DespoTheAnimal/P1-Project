@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class EnemyMovement : Swim
 {
-    // References to the player
-    GameObject target;
+
+    //referenceToThePlayer
     Player player;
 
     //How much the shark hurts the player
@@ -16,9 +16,8 @@ public class EnemyMovement : Swim
 
     void Start()
     {
-        target = GameObject.Find("Player");
-        rbTarget = target.GetComponent<Rigidbody>();
-        player = target.GetComponent<Player>();
+        rbTarget = GameObject.Find("Player").GetComponent<Rigidbody>();
+        player = GameObject.Find("Player").GetComponent<Player>();
         rb = GetComponent<Rigidbody>();
     }
 

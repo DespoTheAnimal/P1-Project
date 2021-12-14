@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+//inspired by Brackys: https://www.youtube.com/watch?v=_nRzoTzeyxU
 [System.Serializable]
 public class Dialogue
 {
