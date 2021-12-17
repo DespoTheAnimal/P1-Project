@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//This script is stolen from brackeys DOI: https://www.youtube.com/watch?v=CE9VOZivb3I&t=528s
 public class LevelLoader : MonoBehaviour
 {
     public Animator transition;
