@@ -4,18 +4,13 @@ using UnityEngine;
 
 // inspiration from https://answers.unity.com/questions/1380771/random-spawn-gameobject-in-area.html
 
-public class FishAI : MonoBehaviour
+public class FishAI : Swim
 {
-
-    Rigidbody rb;
-
-    public float speed = 10f;
-
-    RaycastHit Hit;
 
     // Start is called before the first frame update
     void Start()
     {
+        rbTarget = GameObject.Find("Player").GetComponent<Rigidbody>();
         rb = GetComponent<Rigidbody>();
         setSpeed();
     }
@@ -28,21 +23,24 @@ public class FishAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        FriendlyMove();
+        Move();
     }
 
-    void DefaultMove()
+    protected override void MoveByPlayer()
     {
-        rb.MovePosition(rb.position + transform.forward * speed * Time.deltaTime);
+        transform.LookAt(rbTarget.transform);
     }
-    void FriendlyMove()
+
+    protected override void Move()
     {
-        if (Physics.Raycast(rb.position, transform.forward, out Hit, 2f))
+        if (CastRay(2f))
         {
-
-            rb.transform.Rotate(new Vector3(0, Random.Range(0, 360), 0));
-        }
-        else
+            if (Hit.transform.gameObject.CompareTag("Player"))
+            {
+                MoveByPlayer();
+            }
+            RotateDirection();
+        } else
         {
             DefaultMove();
         }

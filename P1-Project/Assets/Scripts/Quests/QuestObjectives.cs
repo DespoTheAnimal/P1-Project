@@ -62,7 +62,6 @@ public class QuestObjectives : MonoBehaviour
                 currentAmount = GameObject.Find("Player").GetComponent<Player>().trashPickedUp;
                 requiredAmount = resource.objectList[0];
                 resource.SetCounterText("Forurening indsamlet: " + currentAmount.ToString() + "/" + requiredAmount);
-
                 break;
             case objectiveType.escort:
                 FishFollow boobles = GameObject.FindGameObjectWithTag("SafeFish").GetComponent<FishFollow>();
@@ -90,9 +89,7 @@ public class QuestObjectives : MonoBehaviour
                 currentAmount = GameObject.Find("Player").GetComponent<Player>().coralsCleansed;
                 requiredAmount = resource.objectList[1];
                 resource.SetCounterText("Koraller repareret: " + currentAmount.ToString() + "/" + requiredAmount);
-                
                 break;
-            
         } 
     }
 }

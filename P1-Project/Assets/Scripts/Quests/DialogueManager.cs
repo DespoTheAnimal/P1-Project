@@ -4,6 +4,8 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
+//inspired by Brackys: https://www.youtube.com/watch?v=_nRzoTzeyxU
+
 public class DialogueManager : MonoBehaviour
 {
     public TextMeshProUGUI titleText;
